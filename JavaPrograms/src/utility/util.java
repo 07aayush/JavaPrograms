@@ -1,5 +1,6 @@
 package utility;
 
+/// util class for generics method
 public class util {
 
 	public static String stringReplace(String s1,String s2)
