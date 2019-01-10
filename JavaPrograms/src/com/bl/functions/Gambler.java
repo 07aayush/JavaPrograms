@@ -1,6 +1,6 @@
-package functions;
+package com.bl.functions;
 
-import utility.util;
+import com.bl.utility.util;
 
 public class Gambler {
 

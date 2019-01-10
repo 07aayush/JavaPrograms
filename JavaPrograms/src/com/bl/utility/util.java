@@ -1,4 +1,7 @@
-package utility;
+package com.bl.utility;
+
+import java.io.PrintWriter;
+import java.util.Scanner;
 
 /// Until class for generics method
 public class util {
@@ -221,4 +224,135 @@ public class util {
 		}
 		return randcount;
     }
+    
+    
+    /**
+     * @param m indicate number of rows
+     * @param n incicate number of cols
+     * @param a traverse and store in array
+     * 
+     * store the 2d array in sequential form
+     */
+    public static void twoDarray(int m,int n,int a[][]) {
+    	
+    	PrintWriter pw = new PrintWriter(System.out, true); 
+    	Scanner sc1 = new Scanner(System.in);
+    	pw.println("enter the elements");
+    	for(int i = 0; i < m; i++) //rows
+    	{
+    		for(int j = 0; j < n;j++ ) //col
+    		{
+    			a[i][j]=sc1.nextInt(); // store the array
+    		}
+    	}
+    	//printing 2dArray
+  	
+    	for(int i=0;i<m;i++)
+    	{
+    		for(int j=0;j<n;j++)
+    		{
+    			pw.print(a[i][j]+"  ");
+    		}
+    		pw.println();
+    		
+    	}
+    	
+    }
+    
+    /**
+     * function to display and to count the distinct numbers in an array
+     * take 3 variables and a count
+     * traverse the numbers using (i,j,k for ;loop)
+     * then check whether thir sum equals to 0
+     * finally print the distinct numbers and return the count
+     * @param numbers
+     * @return
+     */
+    public static int countDistinctTriplet(int[] b, int length)
+    {
+    	
+    	int i,j,k,count =0;
+    	for(i = 0 ;i<length;i++ )
+    	{
+    		for(j=i+1;j<length;j++)
+    		{
+    			for(k=j+1;k<length;k++)
+    			{
+    				// printing distinct triples (i, j, k) where a[i] + a[j] + a[k] = 0
+    				if(b[i]+b[j]+b[k]==0)
+    				{
+    					System.out.println(b[i] + " " + b[j] + " " + b[k]);
+						count++;
+    				}
+    			}
+    		}
+    	}
+    	return count;
+    } 
+    
+    public static double EuclideanDistance(double x , double y)
+    {
+        double dist = Math.sqrt(x*x + y*y);
+		return dist;
+
+    }
+    
+    /**
+     * @param ch
+     * @param i
+     * @param j
+     * 	//  function to swap two characters in a character array
+     */
+    public static void swap(char[] ch ,int i ,int j)
+    {
+    	char temp = ch[i];
+    	ch[i]=ch[j];
+    	ch[j]=temp;
+    }
+    
+	/**
+	 * @param ch
+	 * @param currentIndex
+	 * Recursive function to generate all permutations of a String
+	 * use ToCharArray which which converts strings to sequence of characters. 
+	 */
+	public static void permutations(char[] ch, int currentIndex)
+	{//method 1
+		if (currentIndex == ch.length - 1) {
+			System.out.println(String.valueOf(ch));
+		}
+
+		for (int i = currentIndex; i < ch.length; i++)
+		{
+			swap(ch, currentIndex, i);
+			permutations(ch, currentIndex + 1);
+			swap(ch, currentIndex, i);
+		}
+	}
+	
+   
+	/**
+	 * @param candidate
+	 * @param remaining
+	 * using recurtion
+	 * Recursive function to generate all permutations of a String
+	 */
+	public static void perm(String candidate, String remaining)
+	{
+		//method2
+		if (remaining.length() == 0) {
+			System.out.println(candidate);
+		}
+
+		for (int i = 0; i < remaining.length(); i++)
+		{
+			String newCandidate = candidate + remaining.charAt(i);
+
+			String newRemaining = remaining.substring(0, i) +
+								  remaining.substring(i + 1);
+
+			perm(newCandidate, newRemaining);
+		}
+	}
+  
 }

@@ -1,8 +1,11 @@
-package functions;
+
+package com.bl.functions;
 
 import java.util.Scanner;
 
-import utility.util;
+import com.bl.utility.util;
+
+
 
 public class stringReplace {
 
