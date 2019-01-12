@@ -313,7 +313,7 @@ public class util {
 	/**
 	 * @param ch
 	 * @param currentIndex
-	 * Recursive function to generate all permutations of a String
+	 * iterative function to generate all permutations of a String
 	 * use ToCharArray which which converts strings to sequence of characters. 
 	 */
 	public static void permutations(char[] ch, int currentIndex)
@@ -355,4 +355,31 @@ public class util {
 		}
 	}
   
+	/**
+	 * @param a
+	 * @param b
+	 * @param c
+	 * @return
+	 * if the first root is 0 thn the roots cannnot be found
+	 * use math.sqrt function to find the roots.
+	 */
+	public static void Quadratic(double a,double b,double c)
+	{
+		  double quadratic =((b*b)-(4*a*c));
+		  double root1 = (-b + Math.sqrt(quadratic))/(2*a);
+		  double root2 = (-b - Math.sqrt(quadratic))/(2*a);
+		  System.out.println("\nroot1 and root2 are :"+a +b+ c);
+		  System.out.println();
+		  System.out.print("\n"+root1);
+		  System.out.print("\n"+root2);
+
+	}
+
+	public static double wind(double t, double v)
+	{
+        double result=35.74+0.6215+(0.4275*t-35.75)*Math.pow(v, 0.16);;
+
+        return result;
+		
+	}
 }
