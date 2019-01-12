@@ -1,6 +1,9 @@
 package com.bl.utility;
 
 import java.io.PrintWriter;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Scanner;
 
 /// Until class for generics method
@@ -382,4 +385,172 @@ public class util {
         return result;
 		
 	}
+	
+	/********************************************************************************************************/
+											//ALGORITHM PROGRAMS//
+	
+	
+	/**
+	 * @param str1 the first string
+	 * @param str2 the second string
+	 * @return
+	 * checks two strings Anagram or not
+	 * 
+	 */
+	public static boolean checkAnagram(String str1, String str2) {
+		char[] str1Chars = str1.toLowerCase().toCharArray();
+		char[] str2Chars = str2.toLowerCase().toCharArray();
+		Arrays.sort(str1Chars);
+		Arrays.sort(str2Chars);
+		str1 = new String(str1Chars);
+		str2 = new String(str2Chars);
+		return str1.equals(str2);
+	}
+	
+	/**
+	 * @param num  num to check prime or not
+	 * checks the number is prime or not
+	 * @return to return true o false
+	 */
+	public static boolean isPrime(int num) 
+	{
+		for(int i = 2 ; i <= num/2 ; i++) {
+			if(num % i == 0)
+				return false;
+		}
+		return true;
+	}
+	
+	
+	/**
+	 * hecks two strings are palindrome or not
+	 * @param str1 first string
+	 * @param str2 second string
+	 * @return true or false
+	 */
+	public static boolean checkPalindrome(String str1, String str2)
+	{
+		String temp = new StringBuilder(str2).reverse().toString();//reversed of str2
+		if(str1.trim().toLowerCase().equals(temp))
+			return true;
+		return false;
+	}
+	
+	/**
+	 * finds and returns anagrams of a set of numbers
+	 * @param nums array of numbers
+	 * @return a map having al the anagrams
+	 */
+	public static HashMap<String,String> anagramsOfNumbers(ArrayList<Integer> nums)
+	{
+		HashMap<String,String> primeAnagrams = new HashMap<String,String>();
+		boolean anagram = false;
+		for(int i = 0 ;i < nums.size() - 1; i++) {
+			for(int j= i+1; j < nums.size(); j++) {
+				Integer p1 = nums.get(i);
+				Integer p2 = nums.get(j);
+				anagram = util.checkAnagram(p1.toString(), p2.toString());
+				if(anagram) {
+					if(primeAnagrams.containsKey(p1))
+					{
+						String oldValue = primeAnagrams.get(p1);
+						primeAnagrams.put(p1.toString(), oldValue+","+p2.toString());
+					}
+					else
+						primeAnagrams.put(p1.toString(), p2.toString());
+				}//end of anagram condition
+			}
+		}
+		return primeAnagrams;
+	}
+	/**
+	 * finds and returns palindromes of a set of numbers
+	 * @param nums array of numbers
+	 * @return a Map having all the palindromes
+	 */
+	public static HashMap<String,String> palindromesOfNumbers(ArrayList<Integer> nums)
+	{
+		HashMap<String,String> allPalindromes = new HashMap<String,String>();
+		boolean palindrome = false;
+		for(int i = 0 ;i < nums.size() - 1; i++) 
+		{
+			for(int j= i+1; j < nums.size(); j++) 
+			{
+				Integer p1 = nums.get(i);
+				Integer p2 = nums.get(j);
+				palindrome = util.checkPalindrome(p1.toString(), p2.toString());
+				if(palindrome) 
+				{
+					if(allPalindromes.containsKey(p1))
+					{
+						String oldValue = allPalindromes.get(p1);
+						allPalindromes.put(p1.toString(), oldValue+","+p2.toString());
+					}
+					else
+						allPalindromes.put(p1.toString(), p2.toString());
+				}//end of palindrome condition
+
+			}
+		}//end of i loop
+		return allPalindromes;
+	
+	
+	}
+	
+	/**
+	 * @param num to store the integer numbers
+	 * @param key to search the given integer in the stored array
+	 * @return if the key is found else return -1
+	 */
+	public static int Binary_Search(int[] num,int key)
+	{
+		int l = 0;
+		int r = num.length -1;
+		
+		while(l<=r)
+		{
+	        int m =((l + r) / 2);
+	        if(key<num[m])
+	        
+	        	r=m-1;
+	        else if(key>num[m])
+	        	l=m+1;
+	        else
+	        	return m;
+		}
+		return -1;
+	}
+	
+	
+	
+	/**
+	 * @param num to store the string numbers
+	 * @param key to search the given integer in the stored array
+	 * @return if the key is found else return -1
+	 */
+	public static int binarySearch(String[] arr, String x) 
+    { 
+        int l = 0, r = arr.length - 1; 
+        while (l <= r) { 
+            int m = l + (r - l) / 2; 
+  
+            int res = x.compareTo(arr[m]); 
+  
+            // Check if x is present at mid 
+            if (res == 0) 
+                return m; 
+  
+            // If x greater, ignore left half 
+            if (res > 0) 
+                l = m + 1; 
+  
+            // If x is smaller, ignore right half 
+            else
+                r = m - 1; 
+        } 
+  
+        return -1; 
+    }
 }
+
+
