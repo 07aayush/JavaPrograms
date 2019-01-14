@@ -13,7 +13,7 @@ public class PowerOf2 {
 
 	        System.out.println("enter the no to calc your power");
 	        if(n>=0&&n<31)
-	        util.powerof2(n);
+	        util.powerOfTwo(n);
 	        else
 	        	System.out.println("overflow ");
 	}

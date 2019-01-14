@@ -1,14 +1,18 @@
 package com.bl.utility;
 
+import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Scanner;
 
 /// Until class for generics method
 public class util {
-
+	
+	static  Scanner sc = new Scanner(System.in);
+	
 	/**
 	 * @param s1 to replace the name
 	 * @param s2  the replaced name
@@ -17,42 +21,32 @@ public class util {
 	public static String stringReplace(String s1,String s2)
 	{
 		//used string replace methods
-		return s1.replace("<<user name>>", s2);
+		return s1.replace("user name", s2);
 	}
 	
+/********************************************************************************************************/
+	
 	/**
-	 * @param t
-	 * @return returning the array
-	 * used math.ramdon function
-	 * where the random number is generated and
-	 * if its less then 0.5 then incr tail else incr head
-	 * and finally find the percentage
+	 * staic method to calculate percentage of getting head, for a given number of
+	 * times the coin flipped
+	 * 
+	 * @param trials the number of times the coin to be flipped
+	 * @return a double value of percentage of head appeared
 	 */
-	public static int[] Percentage(int t)
+	public static double percentageOfHeads(int trials)
 	{
-		int tail =0;
-		int head = 0;
-		int[] arr = new int[2];
-		while(t!=0)
+		int heads = 0;
+		for(int i = 0; i < trials; i++)
 		{
-			double d = Math.random();
-			if(d<0.5)
-			{
-				tail++;
-				
-			}
-			else
-			{
-				head++;
-			}
-				t--;
+			if(Math.random() >= 0.5)
+				heads++;
 		}
-		int tailper = (int)(((double)tail/(tail+head))*100);
-		int headper = (int)(((double)head/(tail+head))*100);
-		arr[0]=tailper;
-		arr[1]=headper;
-		return arr;
+		if(heads == 0)
+			return 0;
+		return (heads*1.0)/trials*100;		
 	}
+/********************************************************************************************************/	
+	
 	/**
 	 * @param year
 	 * @return boolean
@@ -64,24 +58,13 @@ public class util {
 	public static boolean year(int year)
 	{
 		 { 
-		        // If a year is multiple of 400,  
-		        // then it is a leap year 
-		        if (year % 400 == 0) 
-		            return true; 
-		      
-		        // Else If a year is multiple of 100, 
-		        // then it is not a leap year 
-		        if (year % 100 == 0) 
-		            return false; 
-		      
-		        // Else If a year is multiple of 4, 
-		        // then it is a leap year 
-		        if (year % 4 == 0) 
-		            return true; 
-		        return false; 
-		    } 
+			 if((year % 400 == 0) || ((year % 4 == 0) && (year % 100 != 0)))
+
+		      return true; 
+		    }
+		return false; 
 	}
-	
+/********************************************************************************************************/
 	
 	/**
 	 * @param n
@@ -93,7 +76,7 @@ public class util {
 	 * display msg saying overflow
 	 */
 	
-	public static void powerof2(int n)
+	public static void powerOfTwo(int n)
 	{
 		
 		for(int i=0;i<=n;i++)
@@ -103,9 +86,8 @@ public class util {
 		}
 	}
 		
+/********************************************************************************************************/
 	
-	
-	// Function to find nth Harmonic Number 
 	/**
 	 * @param n
 	 * @return  return the sum
@@ -127,6 +109,7 @@ public class util {
 	    return h; 
 	} 
 	
+/********************************************************************************************************/
 
     /**
      * @param n
@@ -139,7 +122,7 @@ public class util {
      * this condition is to handle the case when 
      * n is a prime number greater than 2 
      */
-    public static void primeFactors(int n) 
+    public static int primeFactors(int n) 
     { 
         
         while (n%2==0) 
@@ -151,7 +134,7 @@ public class util {
         
         for (int i = 3; i <= Math.sqrt(n); i+= 2) 
         { 
-            //  
+            
             while (n%i == 0) 
             { 
                 System.out.print(i + " "); 
@@ -161,8 +144,11 @@ public class util {
   
         if (n > 2) 
             System.out.print(n); 
-		
+		return -1;
 	}
+    
+/********************************************************************************************************/
+    
     /**
      * @param a
      * used math.ramdom range(0.5)
@@ -170,33 +156,30 @@ public class util {
      * finally when stake(cash) is equal to goal 
      * wins will be incremented.
      */
-    public static void game(int[] a) {
-    	
-    	int stake =100;
-    	int goal=150;
-    	int num=4;
-    	
-    	int bets=10;
-    	int wins=0;
-    	for (int i=0;i<=num;i++)
-    	{
+    public static void playGame(int stake, int goal, int trials) {
+		int wins = 0;
+		int bets = 0;
+		for(int i = 1; i <= trials ; i++) {
+			int cash = stake;
+			//play until he/she wins/loose the game
+			while( cash > 0 && cash < goal) {
+				bets++;
+				if(Math.random() >= 0.5)// $1 per bet
+					cash++;
+				else
+					cash--;		   
+			}
+			if(cash == goal)
+				wins++;
+		}
+		System.out.println("Total no. of bets made  = "+bets);
+		System.out.println("Total no. of wins = "+ wins);
+		double winPercentage = (wins*100.0)/trials;
+		System.out.println("Win % = "+winPercentage);
+		System.out.println("Loss % = "+(100-winPercentage));
+	}
 
-            int cash = stake;
-           while (cash > 0 && cash < goal) {
-                bets++;
-                if (Math.random() < 0.5) cash++;     // win $1
-                else                     cash--;     // lose $1
-            }
-            if (cash == goal) wins++;                
-        }
-
-    	System.out.println(wins + " wins of " + num);
-    	double percentage = 100 * wins / num;
-    	
-        System.out.println("Percent of games won = " +percentage);
-        System.out.println("Percent of games lost = " + (100.0 - percentage));
-        System.out.println("Avg # bets = " + 1.0 * bets / num);
-    }
+/********************************************************************************************************/
     
     /**
      * @param no_of_times
@@ -228,39 +211,49 @@ public class util {
 		return randcount;
     }
     
+/********************************************************************************************************/
     
-    /**
+     /**
      * @param m indicate number of rows
      * @param n incicate number of cols
      * @param a traverse and store in array
      * 
      * store the 2d array in sequential form
      */
-    public static void twoDarray(int m,int n,int a[][]) {
-    	
-    	PrintWriter pw = new PrintWriter(System.out, true); 
-    	Scanner sc1 = new Scanner(System.in);
-    	pw.println("enter the elements");
-    	for(int i = 0; i < m; i++) //rows
-    	{
-    		for(int j = 0; j < n;j++ ) //col
-    		{
-    			a[i][j]=sc1.nextInt(); // store the array
-    		}
-    	}
-    	//printing 2dArray
-  	
-    	for(int i=0;i<m;i++)
-    	{
-    		for(int j=0;j<n;j++)
-    		{
-    			pw.print(a[i][j]+"  ");
-    		}
-    		pw.println();
-    		
-    	}
-    	
-    }
+    public static int read2DArrayElements(int[][] arr,int rows, int cols) {
+		for (int i = 0; i < rows; i++)
+		{
+			for(int j = 0; j< cols;j++)
+			{
+				arr[i][j] = sc.nextInt();
+			}
+		}
+		return -1;
+	}
+
+	/**
+	 * function to display 2-D array elements to the console
+	 * 
+	 * @param arr the 2-D array whose elements to be read
+	 * @param rows the number of rows of 2-D array
+	 * @param cols the number of columns of 2-D array
+	 */
+	public static int display2DArrayElements(int[][] arr,int rows, int cols) {
+		try(PrintWriter pw = new PrintWriter(new OutputStreamWriter(System.out),true)){
+			for (int i = 0; i < rows; i++)
+			{
+				for(int j = 0; j< cols;j++)
+				{
+					pw.write(arr[i][j] + "  ");
+				}
+				pw.println();
+			}//end of the outer-loop
+		}//end of try-with resource
+		return -1;
+	}
+    
+	
+/********************************************************************************************************/
     
     /**
      * function to display and to count the distinct numbers in an array
@@ -275,9 +268,9 @@ public class util {
     {
     	
     	int i,j,k,count =0;
-    	for(i = 0 ;i<length;i++ )
+    	for(i = 0 ;i<length-2;i++ )
     	{
-    		for(j=i+1;j<length;j++)
+    		for(j=i+1;j<length-1;j++)
     		{
     			for(k=j+1;k<length;k++)
     			{
@@ -293,100 +286,100 @@ public class util {
     	return count;
     } 
     
+/********************************************************************************************************/
+    
+    /**
+     *  coumputes Euclidian distance
+	 * 
+	 * @param x value of x-axis of pint p(x,y)
+	 * @param y value of y-axis of pint p(x,y)
+	 * @return Euclidian distance from the origin to the poin p(x,y)
+	 */
     public static double EuclideanDistance(double x , double y)
     {
         double dist = Math.sqrt(x*x + y*y);
 		return dist;
-
-    }
+	}
     
+/********************************************************************************************************/
+
     /**
-     * @param ch
-     * @param i
-     * @param j
-     * 	//  function to swap two characters in a character array
-     */
-    public static void swap(char[] ch ,int i ,int j)
-    {
-    	char temp = ch[i];
-    	ch[i]=ch[j];
-    	ch[j]=temp;
-    }
-    
-	/**
-	 * @param ch
-	 * @param currentIndex
-	 * iterative function to generate all permutations of a String
-	 * use ToCharArray which which converts strings to sequence of characters. 
+	 * generates an array of permutations of a given string by iterative approach 
+	 * @param inputStr the string for which the permutations has to be generated
+	 * @return string array of permutations of inputStr
 	 */
-	public static void permutations(char[] ch, int currentIndex)
-	{//method 1
-		if (currentIndex == ch.length - 1) {
-			System.out.println(String.valueOf(ch));
+	public static String[] stringPermutationsByIterative(String inputStr) {
+		List<String> results = new ArrayList<String>();
+		char[] chars = inputStr.toCharArray();
+		results.add(new String("" + chars[0]));
+		for(int j=1; j<chars.length; j++) {
+			char c = chars[j];
+			int cur_size = results.size();
+			//creating new permutations by combining char 'c' with each of the existing permutations
+			for(int i=cur_size-1; i>=0; i--) {
+				String str = results.remove(i);
+				for(int l=0; l<=str.length(); l++) {
+					results.add(str.substring(0,l) + c + str.substring(l));
+				}
+			}
 		}
-
-		for (int i = currentIndex; i < ch.length; i++)
-		{
-			swap(ch, currentIndex, i);
-			permutations(ch, currentIndex + 1);
-			swap(ch, currentIndex, i);
+		String[] permutations = results.toArray(new String[results.size()]);
+		return permutations;
+	}
+	
+	/**
+	 * function to display string array elements
+	 * @param str String array
+	 */
+	public static void displayStringArray(String[] str) {
+		for (int i = 0; i < str.length; i++) {
+			System.out.println(str[i]);
 		}
 	}
 	
-   
+/********************************************************************************************************/
+
 	/**
-	 * @param candidate
-	 * @param remaining
-	 * using recurtion
-	 * Recursive function to generate all permutations of a String
+	 * computes and returns the two roots of a quadratic equation 
+	 * 
+	 * @param a variable 
+	 * @param b variable
+	 * @param c constant
+	 * @return array of roots
 	 */
-	public static void perm(String candidate, String remaining)
-	{
-		//method2
-		if (remaining.length() == 0) {
-			System.out.println(candidate);
+      public static double[] quadraticRoots(double a, double b, double c) {
+	  double[] roots = new double[2];
+	  //check for division by zero
+		if(a == 0.0) {
+			System.out.println("can't find the quadritc roots for an equation of degree less than 2...!");
+			return roots = null;
 		}
 
-		for (int i = 0; i < remaining.length(); i++)
-		{
-			String newCandidate = candidate + remaining.charAt(i);
-
-			String newRemaining = remaining.substring(0, i) +
-								  remaining.substring(i + 1);
-
-			perm(newCandidate, newRemaining);
-		}
+		double delta = b*b-4*a*c;
+		roots[0] = (-b+Math.sqrt(delta))/(2*a);
+		roots[1] = (-b-Math.sqrt(delta))/(2*a);
+		return roots;
 	}
-  
+
+/********************************************************************************************************/
+
+      
 	/**
-	 * @param a
-	 * @param b
-	 * @param c
-	 * @return
-	 * if the first root is 0 thn the roots cannnot be found
-	 * use math.sqrt function to find the roots.
+	 * computes and returns windchill(the effective temperature)
+	 * Formulae : 35.74 + 0.6215t + (0.4275t - 35.75)v^0.16
+	 * 
+	 * @param temperature the temperature (in Fahrenheit) 
+	 * @param windSpeed the wind speed (in miles per hour)
+	 * @return windChill
 	 */
-	public static void Quadratic(double a,double b,double c)
+	public static double windChill(double temperature, double windSpeed)
 	{
-		  double quadratic =((b*b)-(4*a*c));
-		  double root1 = (-b + Math.sqrt(quadratic))/(2*a);
-		  double root2 = (-b - Math.sqrt(quadratic))/(2*a);
-		  System.out.println("\nroot1 and root2 are :"+a +b+ c);
-		  System.out.println();
-		  System.out.print("\n"+root1);
-		  System.out.print("\n"+root2);
-
-	}
-
-	public static double wind(double t, double v)
-	{
-        double result=35.74+0.6215+(0.4275*t-35.75)*Math.pow(v, 0.16);;
-
-        return result;
-		
+		double windChill = 0.0;
+		windChill = 35.74 + 0.6215*temperature + (0.4275*temperature - 35.75) * Math.pow(windSpeed, 0.16);
+		return windChill;
 	}
 	
-	/********************************************************************************************************/
+/**********************************************************************************************************************************************/
 											//ALGORITHM PROGRAMS//
 	
 	
@@ -407,6 +400,9 @@ public class util {
 		return str1.equals(str2);
 	}
 	
+/********************************************************************************************************/
+
+	
 	/**
 	 * @param num  num to check prime or not
 	 * checks the number is prime or not
@@ -421,9 +417,11 @@ public class util {
 		return true;
 	}
 	
+/********************************************************************************************************/
+
 	
 	/**
-	 * hecks two strings are palindrome or not
+	 * checks two strings are palindrome or not
 	 * @param str1 first string
 	 * @param str2 second string
 	 * @return true or false
@@ -436,6 +434,8 @@ public class util {
 		return false;
 	}
 	
+/********************************************************************************************************/
+
 	/**
 	 * finds and returns anagrams of a set of numbers
 	 * @param nums array of numbers
@@ -521,8 +521,8 @@ public class util {
 		return -1;
 	}
 	
-	
-	
+/********************************************************************************************************/
+
 	/**
 	 * @param num to store the string numbers
 	 * @param key to search the given integer in the stored array
@@ -551,6 +551,9 @@ public class util {
   
         return -1; 
     }
+	
+/********************************************************************************************************/
+
 }
 
 

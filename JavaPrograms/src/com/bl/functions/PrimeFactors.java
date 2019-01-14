@@ -6,7 +6,7 @@ public class PrimeFactors {
 
 	public static void main(String[] args) {
 		
-		int n = 3;
+		int n = 4;
 		util.primeFactors(n);
 
 }

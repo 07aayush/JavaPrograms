@@ -9,7 +9,7 @@ public class WindChill {
 		double d =Double.parseDouble(args[0]);
 		double e =Double.parseDouble(args[1]);
 		
-		double windchill =util.wind(d, e);
+		double windchill =util.windChill(d, e);
 		System.out.println("windchill= "+windchill);
 		
 	}

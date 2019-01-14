@@ -10,13 +10,18 @@ public class TwoDArray {
 
 	public static void main(String[] args) {
 		
-		Scanner sc2 = new Scanner(System.in);
-		System.out.println("enter the no of rows");
-		int rows = sc2.nextInt();		
-		System.out.println("enter the no of cols");
-		int cols = sc2.nextInt();
-		int[][] twoDarray = new int[rows][cols];
-		util.twoDarray(rows,cols,twoDarray);
+		Scanner sc1 = new Scanner(System.in);
+		
+		// TODO Auto-generated method stub
+	       System.out.println("Enter number of rows(M)...! ");
+	       int rows = sc1.nextInt();
+	       System.out.println("Enter number of columns(N)...!");
+	       int cols = sc1.nextInt();
+	       System.out.println("Enter "+(rows*cols)+" Two-D array elements");
+	       int[][] twoDIntArray = new int[rows][cols];
+	       util.read2DArrayElements(twoDIntArray, rows, cols);
+	       System.out.println("2-D Array elemnts are : ");
+	       util.display2DArrayElements(twoDIntArray,rows,cols);
 
 	}
 
