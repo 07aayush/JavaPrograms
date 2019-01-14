@@ -554,7 +554,7 @@ public class util {
 	
 /********************************************************************************************************/
 
-	public static int insertionSort(int array[])
+	public static void insertionSort(int array[])
 	{
 		  int n = array.length;  
 	        for (int j = 1; j < n; j++) 
@@ -568,8 +568,16 @@ public class util {
 	            }  
 	            array[i+1] = key;  
 	        }
-			return -1;  
-	    }  
+	
+	    }
+	
+	public static void printArray(int arr[]) 
+    { 
+        int n = arr.length; 
+        for (int i=0; i<n; ++i) 
+            System.out.print(arr[i] + " "); 
+        System.out.println(); 
+    } 
 	}
 
 

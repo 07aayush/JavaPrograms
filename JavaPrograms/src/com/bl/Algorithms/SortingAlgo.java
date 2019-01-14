@@ -59,19 +59,20 @@ public class SortingAlgo {
 		
 	*/
 	
-	 int[] arr1 = {9,14,3,2,43,11,58,22};    
-     System.out.println("Before Insertion Sort");    
-     for(int i:arr1){    
-         System.out.print(i+" ");    
-     }    
-     System.out.println();    
-         
-     util.insertionSort(arr1);//sorting array using insertion sort    
-        
-     System.out.println("After Insertion Sort");    
-     for(int i:arr1){    
-         System.out.print(i+" ");    
+		System.out.println("enter the number of elements you want to enter");
+		int no_Of_Elements = sc.nextInt();
+		
+		System.out.println("enter "+no_Of_Elements+" number of elements");
+		 int[] arr = new int[no_Of_Elements];
+		 
+		 for(int i = 0;i<no_Of_Elements;i++)
+			 arr[i]=sc.nextInt();
+		System.out.println("before sorting");
+		util.printArray(arr);
+		System.out.println("After sorting");
+		util.insertionSort(arr);
+		util.printArray(arr);
+		
+   
      }    
  }    
-}
-
