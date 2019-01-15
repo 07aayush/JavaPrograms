@@ -19,8 +19,7 @@ public class StopWatch {
 	public void Start()
 	{
 		startTimer=System.currentTimeMillis();
-		System.out.println("current time is "+startTimer);
-		System.out.println("time displayed in seconds: "+(startTimer/1000)/60);
+		
 	}
 	
 	/**

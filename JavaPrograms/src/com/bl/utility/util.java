@@ -55,15 +55,16 @@ public class util {
 	 * else
 	 * if it is multiple of 100 then return false
 	 */
-	public static boolean year(int year)
+	public static void checkYear(int year)
 	{
-		 { 
 			 if((year % 400 == 0) || ((year % 4 == 0) && (year % 100 != 0)))
 
-		      return true; 
-		    }
-		return false; 
-	}
+				 System.out.println("year "+year+" is a leap year"); 
+			 else
+					System.out.println("year "+year+" is not leap year");
+
+	  }
+		
 /********************************************************************************************************/
 	
 	/**
@@ -84,6 +85,7 @@ public class util {
 			System.out.println("2^"+i+" = "+(int)Math.pow(2, i));
 			
 		}
+		
 	}
 		
 /********************************************************************************************************/
@@ -192,14 +194,14 @@ public class util {
      * and finally to display how many random numbers were
      * generated to display 'n' distinct numbers.
      */
-    public static int RandomNumberGeneration(int No_Of_Times)
+    public static int randomNumberGeneration(int noOfTimes)
 	{
-		boolean[] isDistinct = new boolean[No_Of_Times];
+		boolean[] isDistinct = new boolean[noOfTimes];
 		int dcount=0;
 		int randcount =0;
-		while(dcount<No_Of_Times)
+		while(dcount<noOfTimes)
 		{	
-			int randomnumber = (int ) (Math.random()*No_Of_Times);
+			int randomnumber = (int ) (Math.random()*noOfTimes);
 			randcount++;
 			if(!isDistinct[randomnumber])
 			{
@@ -337,6 +339,13 @@ public class util {
 		}
 	}
 	
+	
+	public static void stopwatch()
+	{
+		
+	}
+	
+	
 /********************************************************************************************************/
 
 	/**
@@ -355,9 +364,9 @@ public class util {
 			return roots = null;
 		}
 
-		double delta = b*b-4*a*c;
-		roots[0] = (-b+Math.sqrt(delta))/(2*a);
-		roots[1] = (-b-Math.sqrt(delta))/(2*a);
+		double d = b*b-4*a*c;
+		roots[0] = (-b+Math.sqrt(d))/(2*a);
+		roots[1] = (-b-Math.sqrt(d))/(2*a);
 		return roots;
 	}
 
@@ -509,14 +518,14 @@ public class util {
 		
 		while(l<=r)
 		{
-	        int m =((l + r) / 2);
-	        if(key<num[m])
+	        int pos =((l + r) / 2);
+	        if(key<num[pos])
 	        
-	        	r=m-1;
-	        else if(key>num[m])
-	        	l=m+1;
+	        	r=pos-1;
+	        else if(key>num[pos])
+	        	l=pos+1;
 	        else
-	        	return m;
+	        	return pos;
 		}
 		return -1;
 	}
@@ -524,53 +533,59 @@ public class util {
 /********************************************************************************************************/
 
 	/**
-	 * @param num to store the string numbers
-	 * @param key to search the given integer in the stored array
+	 * @param num to store the string 
+	 * @param key to search the given string in the stored array
 	 * @return if the key is found else return -1
 	 */
-	public static int binarySearch(String[] arr, String x) 
+	public static int binarySearch(String[] arr, String key) 
     { 
         int l = 0, r = arr.length - 1; 
-        while (l <= r) { 
-            int m = l + (r - l) / 2; 
-  
-            int res = x.compareTo(arr[m]); 
-  
-            // Check if x is present at mid 
+        while (l <= r) 
+        { 
+            int pos = l + (r - l) / 2; 
+            int res = key.compareTo(arr[pos]); 
             if (res == 0) 
-                return m; 
-  
-            // If x greater, ignore left half 
+            return pos; 
             if (res > 0) 
-                l = m + 1; 
-  
-            // If x is smaller, ignore right half 
+            l = pos + 1;
             else
-                r = m - 1; 
+                r = pos - 1; 
         } 
-  
-        return -1; 
+   return -1; 
     }
 	
 /********************************************************************************************************/
 
-	public static void insertionSort(int array[])
+	/**
+	 * function to sort the set of strings using insertion sort
+	 * @param A array of integers
+	 * @return a sorted array of integers
+	 */
+	public static int[] insertionSortUsingInt(int array[])
 	{
-		  int n = array.length;  
-	        for (int j = 1; j < n; j++) 
-	        {  
-	            int key = array[j];  
-	            int i = j-1;  
-	            while ( (i > -1) && ( array [i] > key ) ) 
-	            {  
-	                array [i+1] = array [i];  
-	                i--;  
-	            }  
-	            array[i+1] = key;  
+		  for(int i =1;i<array.length;i++)
+		  {
+			  for(int j = i; j > 0 ; j--)
+			  {
+				  if(array[j-1] > array[j])
+					{//Swap the two elemets
+						int temp = array[j-1];
+						array[j-1] = array[j];
+						array[j] = temp;
+					}
 	        }
 	
 	    }
-	
+		  System.out.println("Sorted array");
+			for(int i =0; i<array.length;i++)
+			{
+				System.out.print(array[i]+" ");
+			}
+		  return array;
+	}
+	/**
+	 * @param arr print the sorted aray to the console
+	 */
 	public static void printArray(int arr[]) 
     { 
         int n = arr.length; 
@@ -578,6 +593,164 @@ public class util {
             System.out.print(arr[i] + " "); 
         System.out.println(); 
     } 
+	
+	/**
+	 *  function to sort the set of strings using insertion sort
+	 * @param A array of strings
+	 * @return a sorted array of strings
+	 */
+	public static String[] insertionSortUsingString(String[] str)
+	{
+		for(int i =1;i<str.length;i++)
+		  {
+			  for(int j = i; j > 0 ; j--)
+			  {
+				  if(str[j-1].compareTo(str[j]) > 0)
+				  {//Swap the two elemets
+						String temp = str[j-1];
+						str[j-1] = str[j];
+						str[j] = temp;
+					}
+	        }
+	
+	    }
+		System.out.println("\nSorted array");
+		for(int i =0; i<str.length;i++)
+		{
+			System.out.print(str[i]+" ");
+		}	
+		  return str;
+		}
+	
+	/**
+	 *@param arr print the sorted aray to the console
+	 */
+	public static void printString(String str[]) 
+    { 
+        int n = str.length; 
+        for (int i=0; i<n; ++i) 
+            System.out.print(str[i] + " "); 
+        System.out.println(); 
+    } 
+	
+	/**
+	 * function to sort the integers using bubble sort algorithm
+	 * @param A array of integers
+	 */
+	public static int[] bubbleSortOfIntegers(int[] arr)
+	{
+		int n = arr.length;
+		int temp=0;
+		
+		for(int i =0; i<arr.length;i++)
+		{
+			for(int j = 1 ;j<(n-i);j++)//no of comparisons
+			{
+				if(arr[j-1] > arr[j])
+				{
+					temp = arr[j-1];
+					arr[j-1] =arr[j];
+					arr[j]=temp;
+				}
+			}
+		}
+		System.out.println("Sorted array");
+		for(int i =0; i<arr.length;i++)
+		{
+			System.out.print(arr[i]+" ");
+		}
+		return arr;
+			}
+	/**
+	 * function to sort the set of strings using the bubble sort algorithms
+	 * @param A array of strings
+	 * @return a sorted array of strings
+	 */
+	public static String[] bubbleSortOfStrings(String[] str)
+	{
+		int n = str.length;
+		String temp= null;;
+		
+		for(int i =0; i<str.length;i++)
+		{
+			for(int j = 1 ;j<(n-i);j++)//no of comparisons
+			{
+				 if(str[j-1].compareTo(str[j]) > 0)
+				 {
+					 temp = str[j-1];
+					str[j-1] =str[j];
+					str[j]=temp;
+				 }
+			}
+		}
+		System.out.println("\nSorted array");
+		for(int i =0; i<str.length;i++)
+		{
+			System.out.print(str[i]+" ");
+		}
+		return str;
 	}
+	
+	/**
+	 * function to sort the set of strings using insertion sort
+	 * @param A array of integers
+	 * @return a sorted array of integers
+	 */
+	public static int[] insertionSort(int array[])
+	{
+		  for(int i =1;i<array.length;i++)
+		  {
+			  for(int j = i; j > 0 ; j--)
+			  {
+				  if(array[j-1] > array[j])
+					{//Swap the two elemets
+						int temp = array[j-1];
+						array[j-1] = array[j];
+						array[j] = temp;
+					}
+	        }
+	
+	    }
+		  System.out.println("Sorted array");
+			for(int i =0; i<array.length;i++)
+			{
+				System.out.print(array[i]+" ");
+			}
+		  return array;
+	}
+	
+	public static int[] bubbleSort(int[] arr)
+	{
+		int n = arr.length;
+		int temp=0;
+		
+		for(int i =0; i<arr.length;i++)
+		{
+			for(int j = 1 ;j<(n-i);j++)//no of comparisons
+			{
+				if(arr[j-1] > arr[j])
+				{
+					temp = arr[j-1];
+					arr[j-1] =arr[j];
+					arr[j]=temp;
+				}
+			}
+		}
+		System.out.println("Sorted array");
+		for(int i =0; i<arr.length;i++)
+		{
+			System.out.print(arr[i]+" ");
+		}
+		return arr;
+			}
+	
+	
+	
+	
+	
+	
+	
+	
+}
 
 

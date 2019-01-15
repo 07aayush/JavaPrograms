@@ -4,15 +4,14 @@ import java.util.Scanner;
 
 import com.bl.utility.util;
 
-public class Distinctnums {
+public class nthHarmonic {
 
 	public static void main(String[] args) {
-		
 		Scanner sc = new Scanner(System.in);
-		System.out.println("enter the number");
+	
+		System.out.println("enter the number:");
 		int number = sc.nextInt();
-	util.randomNumberGeneration(number);
-		
+		System.out.println("the nth harmonic found is: "+util.nthHarmonic(number));
 		
 	}
 
