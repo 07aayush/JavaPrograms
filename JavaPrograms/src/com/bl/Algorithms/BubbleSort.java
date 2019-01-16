@@ -4,11 +4,12 @@ import java.util.Scanner;
 
 import com.bl.utility.util;
 
-public class bubbleSort {
+public class BubbleSort {
 
 	public static void main(String[] args) {
+		// TODO Auto-generated method stub
 
-		Scanner sc =new Scanner(System.in);
+Scanner sc =new Scanner(System.in);
 		
 
 		System.out.println("Enter range");

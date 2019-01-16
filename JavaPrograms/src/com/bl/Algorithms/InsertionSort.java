@@ -4,10 +4,12 @@ import java.util.Scanner;
 
 import com.bl.utility.util;
 
-public class insertionSort {
+public class InsertionSort {
 
 	public static void main(String[] args) {
-		
+		// TODO Auto-generated method stub
+
+
 		Scanner sc = new Scanner(System.in); 
 		
 		System.out.println("Enter range");
@@ -22,7 +24,7 @@ public class insertionSort {
 			array[i]=sc.nextInt();
 		}
 		
-		util.insertionSort(array);		
-		}
+		util.insertionSort(array);	
+	}
 
 }

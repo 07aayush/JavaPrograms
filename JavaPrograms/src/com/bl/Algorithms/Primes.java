@@ -1,12 +1,10 @@
 package com.bl.Algorithms;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
 import com.bl.utility.util;
-
 public class Primes {
 
 	public static void main(String[] args) {
@@ -25,7 +23,8 @@ public class Primes {
 
 		//printing all the prime numbers
 		System.out.println("*****Prime numbers in the range of 0 - "+range + " are :******");
-		for (Integer p : primes) {
+		for (Integer p : primes) 
+		{
 			System.out.println(p);
 		}
 
