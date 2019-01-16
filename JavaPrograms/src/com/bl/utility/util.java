@@ -95,11 +95,10 @@ public class util {
 	 * @return  return the sum
 	 * declare double because the harmonic number will
 	 * be in decimals
-	 * 
 	 */
 	public static double nthHarmonic(int n) 
 	{ 
-	    // H1 = 1 
+	    
 	    double h = 1; 
 	  
 	    // loop to apply the formula  
@@ -305,45 +304,8 @@ public class util {
     
 /********************************************************************************************************/
 
-    /**
-	 * generates an array of permutations of a given string by iterative approach 
-	 * @param inputStr the string for which the permutations has to be generated
-	 * @return string array of permutations of inputStr
-	 */
-	public static String[] stringPermutationsByIterative(String inputStr) {
-		List<String> results = new ArrayList<String>();
-		char[] chars = inputStr.toCharArray();
-		results.add(new String("" + chars[0]));
-		for(int j=1; j<chars.length; j++) {
-			char c = chars[j];
-			int cur_size = results.size();
-			//creating new permutations by combining char 'c' with each of the existing permutations
-			for(int i=cur_size-1; i>=0; i--) {
-				String str = results.remove(i);
-				for(int l=0; l<=str.length(); l++) {
-					results.add(str.substring(0,l) + c + str.substring(l));
-				}
-			}
-		}
-		String[] permutations = results.toArray(new String[results.size()]);
-		return permutations;
-	}
+    //perm
 	
-	/**
-	 * function to display string array elements
-	 * @param str String array
-	 */
-	public static void displayStringArray(String[] str) {
-		for (int i = 0; i < str.length; i++) {
-			System.out.println(str[i]);
-		}
-	}
-	
-	
-	public static void stopwatch()
-	{
-		
-	}
 	
 	
 /********************************************************************************************************/
