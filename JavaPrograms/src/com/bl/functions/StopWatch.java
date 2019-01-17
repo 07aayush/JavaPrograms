@@ -2,8 +2,6 @@ package com.bl.functions;
 
 import java.util.Scanner;
 
-import com.bl.utility.util;
-
 public class StopWatch {
 
 	public long startTimer=0;
@@ -59,16 +57,17 @@ public class StopWatch {
 	 */
 	public static void main(String[] args)
 	{
-		
 		Scanner sc1 = new Scanner(System.in);
 		StopWatch sh = new StopWatch();
 	
 		System.out.println("enter 1 to start");
+		@SuppressWarnings("unused")
 		int a = sc1.nextInt();
 		sh.Start();
 		
 		System.out.println();
 		System.out.println("enter 2 to stop");
+		@SuppressWarnings("unused")
 		int b = sc1.nextInt();
 		sh.Stop();
 		
@@ -77,6 +76,7 @@ public class StopWatch {
 		System.out.println("current elapsed time in milliSeconds is "+l);
 		System.out.println();
 		System.out.println("Converting millisec to seconds: "+(l/1000)+" sec");
+		sc1.close();
 		
 	}
 	}

@@ -8,13 +8,11 @@ public class InsertionSort {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-
-
 		Scanner sc = new Scanner(System.in); 
-		
 		System.out.println("Enter range");
 		int n= sc.nextInt();
 		int[] array=new int[n];
+		@SuppressWarnings("unused")
 		String[] strArray=new String[n];
 		
 		
@@ -25,6 +23,7 @@ public class InsertionSort {
 		}
 		
 		util.insertionSort(array);	
+		sc.close();
 	}
 
 }

@@ -1,11 +1,11 @@
 package com.bl.utility;
 
 import java.io.OutputStreamWriter;
+import java.util.Random;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Scanner;
 
 /// Until class for generics method
@@ -36,6 +36,7 @@ public class util {
 	public static double percentageOfHeads(int trials)
 	{
 		int heads = 0;
+
 		for(int i = 0; i < trials; i++)
 		{
 			if(Math.random() >= 0.5)
@@ -43,6 +44,7 @@ public class util {
 		}
 		if(heads == 0)
 			return 0;
+
 		return (heads*1.0)/trials*100;		
 	}
 	/********************************************************************************************************/	
@@ -100,16 +102,18 @@ public class util {
 	 */
 	public static double nthHarmonic(int n) 
 	{ 
-
-		double h = 1; 
-
+		double sum = 1; 
 		// loop to apply the formula  
 		// Hn = H1 + H2 + H3 ... + Hn-1 + Hn-1 + 1/n 
-		for (int i = 1; i <= n; i++) { 
-			h = h+(double)1 / i; 
-		} 
+		for (int i = 1; i <= n; i++) 
+		{ 
 
-		return h; 
+			sum = sum+(double)1 / i;
+			System.out.print(sum +"");
+			System.out.println();
+		}
+
+		return sum; 
 	} 
 
 	/********************************************************************************************************/
@@ -160,21 +164,30 @@ public class util {
 	 * wins will be incremented.
 	 */
 	public static void playGame(int stake, int goal, int trials) {
+
 		int wins = 0;
 		int bets = 0;
-		for(int i = 1; i <= trials ; i++) {
-			int cash = stake;
-			//play until he/she wins/loose the game
-			while( cash > 0 && cash < goal) {
-				bets++;
-				if(Math.random() >= 0.5)// $1 per bet
-					cash++;
-				else
-					cash--;		   
-			}
-			if(cash == goal)
-				wins++;
+		int cash = stake;
+
+		while(trials!=bets)
+		{
+			bets++;
 		}
+
+		for(int i = 1; i <= trials ; i++)
+		{
+			if(Math.random()>=0.5)
+				cash++;
+			else
+				cash--;
+		}
+		if(cash==goal)
+		{
+			wins++;
+		}
+
+
+
 		System.out.println("Total no. of bets made  = "+bets);
 		System.out.println("Total no. of wins = "+ wins);
 		double winPercentage = (wins*100.0)/trials;
@@ -200,18 +213,27 @@ public class util {
 		boolean[] isDistinct = new boolean[noOfTimes];
 		int dcount=0;
 		int randcount =0;
+
 		while(dcount<noOfTimes)
 		{	
+
 			int randomnumber = (int ) (Math.random()*noOfTimes);
 			randcount++;
 			if(!isDistinct[randomnumber])
 			{
 				dcount++;
 				isDistinct[randomnumber]=true;
-				System.out.println("Distinct coupons are : "+randomnumber);
+				System.out.println("Random Number:- " + randomNumberInRange(10000, 100000));
+
+				//System.out.println("Distinct coupons are : "+randomnumber);
 			}
 		}
 		return randcount;
+	}
+
+	public static int randomNumberInRange(int min, int max) {
+		Random random = new Random();
+		return random.nextInt((max - min) + 1) + min;
 	}
 
 	/********************************************************************************************************/
@@ -298,7 +320,7 @@ public class util {
 	 * @param y value of y-axis of pint p(x,y)
 	 * @return Euclidian distance from the origin to the poin p(x,y)
 	 */
-	public static double EuclideanDistance(double x , double y)
+	public static double euclideanDistance(double x , double y)
 	{
 		double dist = Math.sqrt(x*x + y*y);
 		return dist;
@@ -306,9 +328,7 @@ public class util {
 
 	/********************************************************************************************************/
 
-	//perm
-
-
+	//	public static string permutationRecursive(String str,int l,int r)
 
 	/********************************************************************************************************/
 
@@ -414,9 +434,10 @@ public class util {
 	 * @param nums array of numbers
 	 * @return a map having al the anagrams
 	 */
+	@SuppressWarnings("unlikely-arg-type")
 	public static HashMap<String,String> anagramsOfNumbers(ArrayList<Integer> nums)
 	{
-		HashMap<String,String> primeAnagrams = new HashMap<String,String>();
+		HashMap<String,String> primeAnagrams = new HashMap<String, String>();
 		boolean anagram = false;
 		for(int i = 0 ;i < nums.size() - 1; i++) {
 			for(int j= i+1; j < nums.size(); j++) {
@@ -441,6 +462,7 @@ public class util {
 	 * @param nums array of numbers
 	 * @return a Map having all the palindromes
 	 */
+	@SuppressWarnings("unlikely-arg-type")
 	public static HashMap<String,String> palindromesOfNumbers(ArrayList<Integer> nums)
 	{
 		HashMap<String,String> allPalindromes = new HashMap<String,String>();
@@ -546,7 +568,9 @@ public class util {
 			System.out.print(array[i]+" ");
 		}
 		return array;
-	}
+	}	
+
+
 	/**
 	 * @param arr print the sorted aray to the console
 	 */
@@ -557,6 +581,8 @@ public class util {
 			System.out.print(arr[i] + " "); 
 		System.out.println(); 
 	} 
+	/********************************************************************************************************/
+
 
 	/**
 	 *  function to sort the set of strings using insertion sort
@@ -596,6 +622,7 @@ public class util {
 			System.out.print(str[i] + " "); 
 		System.out.println(); 
 	} 
+	/********************************************************************************************************/
 
 	/**
 	 * function to sort the integers using bubble sort algorithm
@@ -625,6 +652,8 @@ public class util {
 		}
 		return arr;
 	}
+	/********************************************************************************************************/
+
 	/**
 	 * function to sort the set of strings using the bubble sort algorithms
 	 * @param A array of strings
@@ -653,7 +682,8 @@ public class util {
 			System.out.print(str[i]+" ");
 		}
 		return str;
-	}
+	}		
+	/********************************************************************************************************/
 
 	/**
 	 * function to sort the set of strings using insertion sort
@@ -682,6 +712,7 @@ public class util {
 		}
 		return array;
 	}
+	/********************************************************************************************************/
 
 	/**
 	 * 
@@ -714,6 +745,8 @@ public class util {
 		return arr;
 	}
 
+	/********************************************************************************************************/
+
 	/**
 	 * method to convert celsiusToFahrenheit
 	 * @param temp 
@@ -733,8 +766,8 @@ public class util {
 	public static double fahrenheitToCelsius(double temp)
 	{
 		return (temp-32)*(5/9.0);
-
 	}
+	/********************************************************************************************************/
 
 	/**
 	 * vending machine gives you the
@@ -755,8 +788,10 @@ public class util {
 			}
 		}
 		System.out.println("minimum number of notes required is "+notes);
+	} 
 
-	}
+	/********************************************************************************************************/
+
 	/**
 	 * @param m to find month
 	 * @param d to find day
@@ -770,11 +805,10 @@ public class util {
 		int	m0 = m + 12 * ((14 - m) / 12) - 2;
 		int	d0 = (d+x+31*m0/12)%7;
 		return d0;
-
-
 	}
-	
-	
+
+	/********************************************************************************************************/
+
 	/**
 	 * @param p indicates principle
 	 * @param y indicates year
@@ -788,9 +822,11 @@ public class util {
 		double power = Math.pow((1+r),-n);
 		double payment = ((p*r)/(1-power));
 		return payment;
-		
+
 	}
-	
+
+	/********************************************************************************************************/
+
 	/**
 	 * function to calculate a square root of the given number
 	 * if the givne number is non -ve then math.abs returns arguement
@@ -805,9 +841,33 @@ public class util {
 		{
 			t=(c/t+t)/2.0;
 		}
-		
-	return t;
+
+		return t;
 	}
+
+	/********************************************************************************************************/
+	public static boolean isNumber(String s) 
+	{ 
+		if(s.charAt(0) == '-' || s.charAt(1) == '+' || s.charAt(0) >=48 || s.charAt(0) <=57 ) {
+			for (int i = 1; i < s.length(); i++) 
+				if (Character.isDigit(s.charAt(i))== false) 
+					return false; 
+			return true; 
+		}
+		return false;
+	}
+	
+	public static int readPositiveInt()
+	{
+		int value;
+		do {
+			System.out.println("Enter a positive integer number..!");
+			value = sc.nextInt();
+		}while(value < 0);
+		return value;
+	}
+
 }
+
 
 

@@ -54,6 +54,7 @@ public class Primes {
 				System.out.print(Integer.parseInt(s) + "\t");
 			}
 			System.out.println();
+			sc.close();
 		}
 	}
 		

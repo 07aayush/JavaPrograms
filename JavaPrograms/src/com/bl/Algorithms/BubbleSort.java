@@ -15,6 +15,7 @@ Scanner sc =new Scanner(System.in);
 		System.out.println("Enter range");
 		int n= sc.nextInt();
 		int[] array=new int[n];
+		@SuppressWarnings("unused")
 		String[] strArray=new String[n];
 		
 		
@@ -24,7 +25,8 @@ Scanner sc =new Scanner(System.in);
 			array[i]=sc.nextInt();
 		}
 		
-		util.bubbleSort(array);		
+		util.bubbleSort(array);
+		sc.close();
 		}
 	}
 

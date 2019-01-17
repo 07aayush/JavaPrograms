@@ -13,15 +13,28 @@ public class TwoDArray {
 		Scanner sc1 = new Scanner(System.in);
 		
 		// TODO Auto-generated method stub
-	       System.out.println("Enter number of rows(M)...! ");
-	       int rows = sc1.nextInt();
-	       System.out.println("Enter number of columns(N)...!");
-	       int cols = sc1.nextInt();
+		String row; 
+			do {
+				 System.out.println("Enter number of rows(M)...! ");
+				row = sc1.next();
+			}while(!util.isNumber(row));
+			
+			int rows = Integer.parseInt(row);
+	       
+	      
+	       String col;
+	       do {
+	    	   System.out.println("Enter number of columns(N)...!");
+				col = sc1.next();
+			}while(!util.isNumber(col));
+			int cols = Integer.parseInt(col);
+	       
 	       System.out.println("Enter "+(rows*cols)+" Two-D array elements");
 	       int[][] twoDIntArray = new int[rows][cols];
 	       util.read2DArrayElements(twoDIntArray, rows, cols);
 	       System.out.println("2-D Array elemnts are : ");
 	       util.display2DArrayElements(twoDIntArray,rows,cols);
+	       sc1.close();
 
 	}
 

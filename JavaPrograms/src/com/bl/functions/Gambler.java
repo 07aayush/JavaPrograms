@@ -8,7 +8,6 @@ public class Gambler {
 
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		int wins = 0;
 		System.out.println("Enter initial stake...!");
 		int stake = sc.nextInt();
 		System.out.println("Enter your goal...!");
@@ -16,6 +15,7 @@ public class Gambler {
 		System.out.println("Enter No. of times you want to play...!");
 		int trials = sc.nextInt();
 		util.playGame(stake, goal,trials);
+		sc.close();
 	}
 
 }

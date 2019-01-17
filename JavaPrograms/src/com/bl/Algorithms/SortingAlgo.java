@@ -23,17 +23,18 @@ public class SortingAlgo {
 		util u=new util();
 		
 		StopWatch sh = new StopWatch();
-	//	System.out.println("Enter range");
-		//int n= sc.nextInt();
-	//	int[] array=new int[n];
-		//String[] strArray=new String[n];
 		/*
+		System.out.println("Enter range");
+		int n= sc.nextInt();
+		int[] array=new int[n];
+		String[] strArray=new String[n];
+		
 		System.out.println("Enter array");
 		for(int i=0;i<n;i++)
 		{
 			array[i]=sc.nextInt();
 		}
-		System.out.println("Enter string array");
+		//System.out.println("Enter string array");
 		for(int i=0;i<n;i++)
 		{
 			strArray[i]=sc.next();
@@ -42,7 +43,7 @@ public class SortingAlgo {
 		
 		// FOR BINARY SEARCH INT
 		
-		/*
+		
 		System.out.println("enter the no of integers");
 		num =sc.nextInt();
 		
@@ -69,28 +70,9 @@ public class SortingAlgo {
 		else
 		System.out.println("key "+key+ "not found");
 			
-		  */
+		  
 		 
 	
-		// FOR BINARY SEARCH STRING
-		
-		String[] arr = { "contribute", "ide", "practice","taken", "hello", "practice"}; 
-        String x = "ide"; 
-		
-        startTimer =System.currentTimeMillis();
-		System.out.println(startTimer);
-        int result = util.binarySearch(arr, x);
-        Thread.sleep(10);
-		stopTimer= System.currentTimeMillis();
-		System.out.println(stopTimer);
-		elapsed = stopTimer - startTimer;
-		System.out.println("Elapsed time : "+elapsed);
-  
-      
-        if (result == -1) 
-            System.out.println("Element not present"); 
-        else
-            System.out.println("Element found at "+ "index " + result); 
 			
 		/*
 		//INSERTON SORT USING INT
@@ -135,6 +117,28 @@ public class SortingAlgo {
 		
 		*/
 		
+
+		// FOR BINARY SEARCH STRING
+		/*
+		String[] arr = { "contribute", "ide", "practice","taken", "hello", "practice"}; 
+        String x = "ide"; 
+		
+        startTimer =System.currentTimeMillis();
+		System.out.println(startTimer);
+        int result = util.binarySearch(arr, x);
+        Thread.sleep(10);
+		stopTimer= System.currentTimeMillis();
+		System.out.println(stopTimer);
+		elapsed = stopTimer - startTimer;
+		System.out.println("Elapsed time : "+elapsed);
+  
+      
+        if (result == -1) 
+            System.out.println("Element not present"); 
+        else
+            System.out.println("Element found at "+ "index " + result); 
+            
+            */
 		
 		
 		

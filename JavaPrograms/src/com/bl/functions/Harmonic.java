@@ -7,12 +7,16 @@ import com.bl.utility.util;
 public class Harmonic {
 
 	public static void main(String[] args) {
-	 
+
 		Scanner sc1 = new Scanner(System.in);
-		
-		System.out.println("enter the harmonic number ");
-		int input = sc1.nextInt();
-		System.out.println("the nth harmonic found is: "+util.nthHarmonic(input));
-	}
+		String input;
+		do {
+			System.out.println("enter the valid number");
+			input = sc1.next();
+		}while(!util.isNumber(input));
+		int number = Integer.parseInt(input);
+		System.out.println("the harmonic number is :"+util.nthHarmonic(number));
+		sc1.close();
+		}
 
 }

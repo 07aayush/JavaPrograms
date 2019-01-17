@@ -13,6 +13,7 @@ public class Currency {
 		System.out.println("enter the rupees");
 		int enter_Currency = sc.nextInt();
 		util.countNotes(enter_Currency);
+		sc.close();
 	}
 
 }

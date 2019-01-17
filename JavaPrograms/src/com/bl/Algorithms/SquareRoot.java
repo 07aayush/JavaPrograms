@@ -16,11 +16,14 @@ public class SquareRoot {
 		do {
 			System.out.println("Enter a non- negative number...!");
 			num = sc.nextDouble();
-		}while(num < 0);
+			}
+		while(num < 0);
 		sqrtVal = util.sqrt(num);
 		DecimalFormat df = new DecimalFormat(".###");
 		System.out.println("Square root of "+num + " : "+df.format(sqrtVal));
+		sc.close();
+
 	}
-	}
+}
 
 
