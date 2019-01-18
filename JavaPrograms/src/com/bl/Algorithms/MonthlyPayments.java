@@ -7,25 +7,33 @@ public class MonthlyPayments {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-		if(args.length<3)
+		if(args.length < 3)
 		{
-			System.out.println("enter principle, year,interest rate");
-			return;
+			System.out.println("enter minimum 3 inputs");
 		}
+		else
+		{
 		
-		Double P;
-		Double Y;
-		Double R;
+		Double Principle;
+		Double Year;
+		Double RateOfInterest;
 		Double payment;
 		
-		P=Double.parseDouble(args[0]);
-		Y=Double.parseDouble(args[1]);
-		R=Double.parseDouble(args[2]);
+		try {
+		Principle=Double.parseDouble(args[0]);
+		Year=Double.parseDouble(args[1]);
+		RateOfInterest=Double.parseDouble(args[2]);
 		
-		payment = Util.monthlyPayment(P, Y, R);
-		System.out.println("given:\n P = "+P+"\n Y = "+Y+" years "+"\n R = "+R +"%");
-		System.out.printf("\nmonthly payment : %.2f",payment);
+		payment = Util.monthlyPayment(Principle, Year, RateOfInterest);
+		System.out.println("given:\n Princple = "+Principle+"\n Year = "+Year+" years "+"\n RateOfIntrest = "+RateOfInterest +"%");
+		System.out.printf("\nMonthly Payment : %.2f",payment);
+		}
+		catch(NumberFormatException e)
+			{
+				System.out.println("Enter three valid double as inputs " + e.getMessage());
+			}
 		
 	}
 
+}
 }

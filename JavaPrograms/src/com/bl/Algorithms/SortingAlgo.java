@@ -61,7 +61,7 @@ public class SortingAlgo {
 		key = sc.nextInt();
 		startTimer =System.currentTimeMillis();
 		System.out.println(startTimer);
-		searchResult=Util.Binary_Search(numbers, key);
+		searchResult=Util.binarySearch(numbers, key);
 		Thread.sleep(10);
 		stopTimer= System.currentTimeMillis();
 		System.out.println(stopTimer);
@@ -70,7 +70,7 @@ public class SortingAlgo {
 		if(searchResult!=-1)
 		System.out.println("key found at postition "+searchResult);
 		else
-		System.out.println("key "+key+ "not found");
+		System.out.println("key "+key+" not found");
 			
 		  
 		 

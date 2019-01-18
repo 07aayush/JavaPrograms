@@ -10,9 +10,14 @@ public class Currency {
 		// TODO Auto-generated method stub
 
 		Scanner sc =new Scanner(System.in);
-		System.out.println("enter the rupees");
-		int enter_Currency = sc.nextInt();
-		Util.countNotes(enter_Currency);
+		String input;
+		
+		do {
+			System.out.println("enter the valid number in rupees");
+			input = sc.next();
+		}while(!Util.isNumber(input));
+		int number = Integer.parseInt(input);
+		Util.countNotes(number);
 		sc.close();
 	}
 

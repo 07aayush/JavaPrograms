@@ -393,6 +393,35 @@ public class Util {
 		return windChill;
 	}
 
+	/********************************************************************************************************/
+
+	public static boolean isNumber(String s) 
+	{ 
+		if(s.charAt(0) == '-' || s.charAt(0) == '+' ){
+			for (int i = 1; i < s.length(); i++) 
+				if (Character.isDigit(s.charAt(i))== false) 
+					return false; 
+			return true; 
+		}
+		else {
+			for (int i = 0; i < s.length(); i++) 
+				if (Character.isDigit(s.charAt(i))== false) 
+					return false; 
+			return true; 
+		}
+	}
+
+	public static int readPositiveInt()
+	{
+		int value;
+		do {
+			System.out.println("Enter a positive integer number..!");
+			value = sc.nextInt();
+		}while(value < 0);
+		return value;
+	}
+
+
 	/**********************************************************************************************************************************************/
 	//ALGORITHM PROGRAMS//
 
@@ -415,8 +444,6 @@ public class Util {
 	}
 
 	/********************************************************************************************************/
-
-
 	/**
 	 * @param num  num to check prime or not
 	 * checks the number is prime or not
@@ -518,7 +545,7 @@ public class Util {
 	 * @param key to search the given integer in the stored array
 	 * @return if the key is found else return -1
 	 */
-	public static int Binary_Search(int[] num,int key)
+	public static int binarySearch(int[] num,int key)
 	{
 		int l = 0;
 		int r = num.length -1;
@@ -867,31 +894,6 @@ public class Util {
 	}
 
 	/********************************************************************************************************/
-	public static boolean isNumber(String s) 
-	{ 
-		if(s.charAt(0) == '-' || s.charAt(0) == '+' ){
-			for (int i = 1; i < s.length(); i++) 
-				if (Character.isDigit(s.charAt(i))== false) 
-					return false; 
-			return true; 
-		}
-		else {
-			for (int i = 0; i < s.length(); i++) 
-				if (Character.isDigit(s.charAt(i))== false) 
-					return false; 
-			return true; 
-		}
-	}
-
-	public static int readPositiveInt()
-	{
-		int value;
-		do {
-			System.out.println("Enter a positive integer number..!");
-			value = sc.nextInt();
-		}while(value < 0);
-		return value;
-	}
 
 }
 

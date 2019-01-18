@@ -12,12 +12,24 @@ public class TemperatureConversion {
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.println("enter input number to convert the temperature from Celsius to fahrenheit");
-		int input = sc.nextInt();
-		System.out.println("to fahrenheit "+Util.celsiusToFahrenheit(input));
+		
+		String input1;
+		do {
+			System.out.println("enter the valid number");
+			input1 = sc.next();
+		}while(!Util.isNumber(input1));
+		double number = Double.parseDouble(input1);
+		System.out.println("to fahrenheit "+Util.celsiusToFahrenheit(number));
 		System.out.println();
+		
+		
 		System.out.println("enter input number to convert the temperature from fahrenheit to celcius");
-		int input2 = sc.nextInt();
-		System.out.println("to celcius "+Util.fahrenheitToCelsius(input2));
+		do {
+			System.out.println("enter the valid number");
+			input1 = sc.next();
+		}while(!Util.isNumber(input1));
+		double number1 = Integer.parseInt(input1);
+		System.out.println("to celcius "+Util.fahrenheitToCelsius(number1));
 		sc.close();
 		
 		
