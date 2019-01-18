@@ -1,6 +1,6 @@
 package com.bl.Algorithms;
 
-import com.bl.utility.util;
+import com.bl.utility.Util;
 
 public class DayOfDate {
 
@@ -21,7 +21,7 @@ public class DayOfDate {
 		day =Integer.parseInt(args[1]);
 		year = Integer.parseInt(args[2]);
 
-		weekDay=util.dayOfWeek(month,day,year);
+		weekDay=Util.dayOfWeek(month,day,year);
 		System.out.println();
 		System.out.println("given date : "+month+ ":"+day+ ":"+year);
 		System.out.println();

@@ -2,7 +2,7 @@ package com.bl.functions;
 
 import java.util.Scanner;
 
-import com.bl.utility.util;
+import com.bl.utility.Util;
 
 
 
@@ -17,7 +17,7 @@ public class TwoDArray {
 			do {
 				 System.out.println("Enter number of rows(M)...! ");
 				row = sc1.next();
-			}while(!util.isNumber(row));
+			}while(!Util.isNumber(row));
 			
 			int rows = Integer.parseInt(row);
 	       
@@ -26,14 +26,14 @@ public class TwoDArray {
 	       do {
 	    	   System.out.println("Enter number of columns(N)...!");
 				col = sc1.next();
-			}while(!util.isNumber(col));
+			}while(!Util.isNumber(col));
 			int cols = Integer.parseInt(col);
 	       
 	       System.out.println("Enter "+(rows*cols)+" Two-D array elements");
 	       int[][] twoDIntArray = new int[rows][cols];
-	       util.read2DArrayElements(twoDIntArray, rows, cols);
+	       Util.read2DArrayElements(twoDIntArray, rows, cols);
 	       System.out.println("2-D Array elemnts are : ");
-	       util.display2DArrayElements(twoDIntArray,rows,cols);
+	       Util.display2DArrayElements(twoDIntArray,rows,cols);
 	       sc1.close();
 
 	}

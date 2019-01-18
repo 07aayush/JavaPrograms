@@ -2,7 +2,7 @@ package com.bl.Algorithms;
 
 import java.util.Scanner;
 
-import com.bl.utility.util;
+import com.bl.utility.Util;
 
 public class TemperatureConversion {
 
@@ -13,11 +13,12 @@ public class TemperatureConversion {
 		
 		System.out.println("enter input number to convert the temperature from Celsius to fahrenheit");
 		int input = sc.nextInt();
-		System.out.println("to fahrenheit "+util.celsiusToFahrenheit(input));
+		System.out.println("to fahrenheit "+Util.celsiusToFahrenheit(input));
 		System.out.println();
 		System.out.println("enter input number to convert the temperature from fahrenheit to celcius");
 		int input2 = sc.nextInt();
-		System.out.println("to celcius "+util.fahrenheitToCelsius(input2));
+		System.out.println("to celcius "+Util.fahrenheitToCelsius(input2));
+		sc.close();
 		
 		
 	}

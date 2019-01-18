@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 /// Until class for generics method
-public class util {
+public class Util {
 
 	static  Scanner sc = new Scanner(System.in);
 
@@ -163,37 +163,35 @@ public class util {
 	 * finally when stake(cash) is equal to goal 
 	 * wins will be incremented.
 	 */
-	public static void playGame(int stake, int goal, int trials) {
 
-		int wins = 0;
-		int bets = 0;
-		int cash = stake;
 
-		while(trials!=bets)
+
+	public static void gambler(int stake, int goal , int games)
+	{
+		int counter=0,win=0,bets=0;
+		float n;
+		while(counter<games && (stake>0 && stake<goal)) 
 		{
 			bets++;
+			n=(float) Math.random();
+			if(n>0.5) 
+			{
+				stake++;
+				win++;
+				System.out.println(n+" win ");
+			}
+			else 
+			{
+				stake--;
+
+				System.out.println(n+" loss ");
+
+			}
+			counter++;
 		}
-
-		for(int i = 1; i <= trials ; i++)
-		{
-			if(Math.random()>=0.5)
-				cash++;
-			else
-				cash--;
-		}
-		if(cash==goal)
-		{
-			wins++;
-		}
-
-
-
-		System.out.println("Total no. of bets made  = "+bets);
-		System.out.println("Total no. of wins = "+ wins);
-		double winPercentage = (wins*100.0)/trials;
-		System.out.println("Win % = "+winPercentage);
-		System.out.println("Loss % = "+(100-winPercentage));
+		System.out.println("The number of wins are: "+win+", percentage of wins: "+(win*100/(bets)+", bets: "+bets));	
 	}
+
 
 	/********************************************************************************************************/
 
@@ -223,11 +221,10 @@ public class util {
 			{
 				dcount++;
 				isDistinct[randomnumber]=true;
-				System.out.println("Random Number:- " + randomNumberInRange(10000, 100000));
-
-				//System.out.println("Distinct coupons are : "+randomnumber);
+				System.out.println(randomNumberInRange(10000, 100000));
 			}
 		}
+		System.out.println("total number of random numbers generated are : "+randcount);
 		return randcount;
 	}
 
@@ -328,7 +325,31 @@ public class util {
 
 	/********************************************************************************************************/
 
-	//	public static string permutationRecursive(String str,int l,int r)
+	public static void permutationRecursive(String str,int l,int r)
+	{
+
+		if(l==r)
+			System.out.println(str);
+		else
+		{
+			for(int i =0;i<=r;i++)
+			{
+				str =swap(str,l,i);
+				permutationRecursive(str,l+1,r);
+				str=swap(str,l,i);
+			}
+		}
+	}
+
+	public static String swap(String str,int l,int i)
+	{
+		char temp;
+		char[] charArr = str.toCharArray();
+		temp=charArr[l];
+		charArr[l]=charArr[i];
+		charArr[i] =temp;
+		return String.valueOf(charArr);
+	}
 
 	/********************************************************************************************************/
 
@@ -443,7 +464,7 @@ public class util {
 			for(int j= i+1; j < nums.size(); j++) {
 				Integer p1 = nums.get(i);
 				Integer p2 = nums.get(j);
-				anagram = util.checkAnagram(p1.toString(), p2.toString());
+				anagram = Util.checkAnagram(p1.toString(), p2.toString());
 				if(anagram) {
 					if(primeAnagrams.containsKey(p1))
 					{
@@ -473,7 +494,7 @@ public class util {
 			{
 				Integer p1 = nums.get(i);
 				Integer p2 = nums.get(j);
-				palindrome = util.checkPalindrome(p1.toString(), p2.toString());
+				palindrome = Util.checkPalindrome(p1.toString(), p2.toString());
 				if(palindrome) 
 				{
 					if(allPalindromes.containsKey(p1))
@@ -848,15 +869,20 @@ public class util {
 	/********************************************************************************************************/
 	public static boolean isNumber(String s) 
 	{ 
-		if(s.charAt(0) == '-' || s.charAt(1) == '+' || s.charAt(0) >=48 || s.charAt(0) <=57 ) {
+		if(s.charAt(0) == '-' || s.charAt(0) == '+' ){
 			for (int i = 1; i < s.length(); i++) 
 				if (Character.isDigit(s.charAt(i))== false) 
 					return false; 
 			return true; 
 		}
-		return false;
+		else {
+			for (int i = 0; i < s.length(); i++) 
+				if (Character.isDigit(s.charAt(i))== false) 
+					return false; 
+			return true; 
+		}
 	}
-	
+
 	public static int readPositiveInt()
 	{
 		int value;
@@ -868,6 +894,7 @@ public class util {
 	}
 
 }
+
 
 
 

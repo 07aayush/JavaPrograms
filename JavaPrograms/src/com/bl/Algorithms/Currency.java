@@ -2,7 +2,7 @@ package com.bl.Algorithms;
 
 import java.util.Scanner;
 
-import com.bl.utility.util;
+import com.bl.utility.Util;
 
 public class Currency {
 
@@ -12,7 +12,7 @@ public class Currency {
 		Scanner sc =new Scanner(System.in);
 		System.out.println("enter the rupees");
 		int enter_Currency = sc.nextInt();
-		util.countNotes(enter_Currency);
+		Util.countNotes(enter_Currency);
 		sc.close();
 	}
 

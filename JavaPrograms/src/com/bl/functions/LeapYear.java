@@ -2,7 +2,7 @@ package com.bl.functions;
 
 import java.util.Scanner;
 
-import com.bl.utility.util;
+import com.bl.utility.Util;
 
 public class LeapYear {
 
@@ -22,7 +22,7 @@ public class LeapYear {
 			}
 		}
 		int year1=Integer.parseInt(enter_Year);
-		util.checkYear(year1);
+		Util.checkYear(year1);
 		sc.close();
 
 	}

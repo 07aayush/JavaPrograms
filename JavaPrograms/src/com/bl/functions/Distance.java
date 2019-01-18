@@ -1,6 +1,6 @@
 package com.bl.functions;
 
-import com.bl.utility.util;
+import com.bl.utility.Util;
 
 public class Distance {
 
@@ -17,7 +17,7 @@ public class Distance {
 			try {
 				x = Double.parseDouble(args[0]);
 				y = Double.parseDouble(args[1]);
-				double distance = util.euclideanDistance(x, y);
+				double distance = Util.euclideanDistance(x, y);
 				System.out.println("distance from (" + x + ", " + y + ") to (0, 0) = " + distance);
 			}
 			catch(NumberFormatException e)

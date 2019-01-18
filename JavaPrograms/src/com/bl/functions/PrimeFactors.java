@@ -2,7 +2,7 @@ package com.bl.functions;
 
 import java.util.Scanner;
 
-import com.bl.utility.util;
+import com.bl.utility.Util;
 
 public class PrimeFactors {
 
@@ -14,9 +14,9 @@ public class PrimeFactors {
 		do {
 			System.out.println("enter the valid number num");
 			input = sc.next();
-		}while(!util.isNumber(input));
+		}while(!Util.isNumber(input));
 		int number = Integer.parseInt(input);
-		util.primeFactors(number);
+		Util.primeFactors(number);
 		sc.close();
 
 	}

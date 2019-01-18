@@ -1,6 +1,6 @@
 package com.bl.functions;
 
-import com.bl.utility.util;
+import com.bl.utility.Util;
 
 public class WindChill {
 
@@ -17,7 +17,7 @@ public class WindChill {
 			try {
 				x = Double.parseDouble(args[0]);
 				y = Double.parseDouble(args[1]);
-				double windchill = util.windChill(x, y);
+				double windchill = Util.windChill(x, y);
 				System.out.println("windchill =" +windchill);
 			}
 			catch(NumberFormatException e)

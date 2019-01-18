@@ -2,7 +2,7 @@ package com.bl.functions;
 
 import java.util.Scanner;
 
-import com.bl.utility.util;
+import com.bl.utility.Util;
 
 public class Distinctnums {
 
@@ -12,9 +12,9 @@ public class Distinctnums {
 		do {
 			System.out.println("enter the valid number");
 			input = sc.next();
-		}while(!util.isNumber(input));
+		}while(!Util.isNumber(input));
 		int number = Integer.parseInt(input);
-		util.randomNumberGeneration(number);
+		Util.randomNumberGeneration(number);
 		sc.close();
 	}
 

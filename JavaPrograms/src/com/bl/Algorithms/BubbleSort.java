@@ -2,7 +2,7 @@ package com.bl.Algorithms;
 
 import java.util.Scanner;
 
-import com.bl.utility.util;
+import com.bl.utility.Util;
 
 public class BubbleSort {
 
@@ -25,7 +25,7 @@ Scanner sc =new Scanner(System.in);
 			array[i]=sc.nextInt();
 		}
 		
-		util.bubbleSort(array);
+		Util.bubbleSort(array);
 		sc.close();
 		}
 	}

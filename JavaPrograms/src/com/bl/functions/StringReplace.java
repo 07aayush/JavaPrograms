@@ -2,7 +2,7 @@ package com.bl.functions;
 
 import java.util.Scanner;
 
-import com.bl.utility.util;
+import com.bl.utility.Util;
 
 public class StringReplace {
 
@@ -16,7 +16,7 @@ public class StringReplace {
 			System.out.println("Enter the user name of min 3 chars...!" );
 			s2=sc1.next();
 		}while(s2.length()<3);
-		System.out.println(util.stringReplace(s1, s2));
+		System.out.println(Util.stringReplace(s1, s2));
 		sc1.close();
 
 	}

@@ -3,7 +3,7 @@ package com.bl.Algorithms;
 import java.util.Scanner;
 
 import com.bl.functions.StopWatch;
-import com.bl.utility.util;
+import com.bl.utility.Util;
 
 public class SortingAlgo {
 
@@ -20,8 +20,10 @@ public class SortingAlgo {
 		
 		
 		Scanner sc = new Scanner(System.in);
-		util u=new util();
+		@SuppressWarnings("unused")
+		Util u=new Util();
 		
+		@SuppressWarnings("unused")
 		StopWatch sh = new StopWatch();
 		/*
 		System.out.println("Enter range");
@@ -59,7 +61,7 @@ public class SortingAlgo {
 		key = sc.nextInt();
 		startTimer =System.currentTimeMillis();
 		System.out.println(startTimer);
-		searchResult=util.Binary_Search(numbers, key);
+		searchResult=Util.Binary_Search(numbers, key);
 		Thread.sleep(10);
 		stopTimer= System.currentTimeMillis();
 		System.out.println(stopTimer);
@@ -77,7 +79,7 @@ public class SortingAlgo {
 		/*
 		//INSERTON SORT USING INT
 		startTimer =System.currentTimeMillis();
-		util.insertionSortUsingInt(array);
+		Util.insertionSortUsingInt(array);
 		Thread.sleep(100);
 		stopTimer= System.currentTimeMillis();
 		elapsed = stopTimer - startTimer;
@@ -87,7 +89,7 @@ public class SortingAlgo {
 		//INSERTION SORT USING STRINGS
 		startTimer =System.currentTimeMillis();
 		System.out.println(startTimer);
-		util.insertionSortUsingString(strArray);
+		Util.insertionSortUsingString(strArray);
 		Thread.sleep(10);
 		stopTimer= System.currentTimeMillis();
 		System.out.println(stopTimer);
@@ -98,7 +100,7 @@ public class SortingAlgo {
 		//BUBBLE SORT USING INTEGERS
 		startTimer =System.currentTimeMillis();
 		System.out.println(startTimer);
-		util.bubbleSortOfIntegers(array);
+		Util.bubbleSortOfIntegers(array);
 		Thread.sleep(100);
 		stopTimer= System.currentTimeMillis();
 		elapsed = stopTimer - startTimer;
@@ -108,7 +110,7 @@ public class SortingAlgo {
 		//BUBBLE SORT USING STRINGS
 		startTimer =System.currentTimeMillis();
 		System.out.println(startTimer);
-		util.bubbleSortOfStrings(strArray);
+		Util.bubbleSortOfStrings(strArray);
 		Thread.sleep(100);
 		stopTimer= System.currentTimeMillis();
 		elapsed = stopTimer - startTimer;
@@ -125,7 +127,7 @@ public class SortingAlgo {
 		
         startTimer =System.currentTimeMillis();
 		System.out.println(startTimer);
-        int result = util.binarySearch(arr, x);
+        int result = Util.binarySearch(arr, x);
         Thread.sleep(10);
 		stopTimer= System.currentTimeMillis();
 		System.out.println(stopTimer);
@@ -140,6 +142,7 @@ public class SortingAlgo {
             
             */
 		
+		sc.close();
 		
 		
 		

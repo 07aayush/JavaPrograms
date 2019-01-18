@@ -1,6 +1,6 @@
 package com.bl.Algorithms;
 
-import com.bl.utility.util;
+import com.bl.utility.Util;
 
 public class MonthlyPayments {
 
@@ -22,7 +22,7 @@ public class MonthlyPayments {
 		Y=Double.parseDouble(args[1]);
 		R=Double.parseDouble(args[2]);
 		
-		payment = util.monthlyPayment(P, Y, R);
+		payment = Util.monthlyPayment(P, Y, R);
 		System.out.println("given:\n P = "+P+"\n Y = "+Y+" years "+"\n R = "+R +"%");
 		System.out.printf("\nmonthly payment : %.2f",payment);
 		

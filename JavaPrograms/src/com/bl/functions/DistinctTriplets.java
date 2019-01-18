@@ -2,7 +2,7 @@ package com.bl.functions;
 
 import java.util.Scanner;
 
-import com.bl.utility.util;
+import com.bl.utility.Util;
 
 public class DistinctTriplets {
 
@@ -15,7 +15,7 @@ public class DistinctTriplets {
 			System.out.println("enter the valid number of ints");
 			
 			input = sc1.next();
-		}while(!util.isNumber(input));
+		}while(!Util.isNumber(input));
 		int num = Integer.parseInt(input);
 		int[] arr = new int [num];//create array & read values one by one
 		System.out.println("Enter "+num +" Values :");
@@ -23,7 +23,7 @@ public class DistinctTriplets {
 		{
 			arr[i]=sc1.nextInt();
 		}
-		int sum=util.countDistinctTriplet(arr, num);//pass the arguments to method 1
+		int sum=Util.countDistinctTriplet(arr, num);//pass the arguments to method 1
 		System.out.println("No.of Tripltes :"+sum);
 		sc1.close();
 	}

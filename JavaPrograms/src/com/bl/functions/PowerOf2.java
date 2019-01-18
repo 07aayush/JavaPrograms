@@ -1,6 +1,6 @@
 package com.bl.functions;
 
-import com.bl.utility.util;
+import com.bl.utility.Util;
 
 public class PowerOf2 {
 
@@ -19,7 +19,7 @@ public class PowerOf2 {
 					System.out.println("enter the no to calc your power");
 				else
 					System.out.println("overflow occured ");
-				util.powerOfTwo(y);
+				Util.powerOfTwo(y);
 
 			}
 			catch(NumberFormatException e)

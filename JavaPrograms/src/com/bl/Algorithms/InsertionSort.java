@@ -2,7 +2,7 @@ package com.bl.Algorithms;
 
 import java.util.Scanner;
 
-import com.bl.utility.util;
+import com.bl.utility.Util;
 
 public class InsertionSort {
 
@@ -22,7 +22,7 @@ public class InsertionSort {
 			array[i]=sc.nextInt();
 		}
 		
-		util.insertionSort(array);	
+		Util.insertionSort(array);	
 		sc.close();
 	}
 

@@ -3,7 +3,7 @@ package com.bl.Algorithms;
 import java.text.DecimalFormat;
 import java.util.Scanner;
 
-import com.bl.utility.util;
+import com.bl.utility.Util;
 
 public class SquareRoot {
 
@@ -18,7 +18,7 @@ public class SquareRoot {
 			num = sc.nextDouble();
 			}
 		while(num < 0);
-		sqrtVal = util.sqrt(num);
+		sqrtVal = Util.sqrt(num);
 		DecimalFormat df = new DecimalFormat(".###");
 		System.out.println("Square root of "+num + " : "+df.format(sqrtVal));
 		sc.close();
