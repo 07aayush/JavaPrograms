@@ -11,7 +11,7 @@ import java.util.Scanner;
 /// Until class for generics method
 public class Util {
 
-	static  Scanner sc = new Scanner(System.in);
+	public static  Scanner sc = new Scanner(System.in);
 
 	/**
 	 * @param s1 to replace the name

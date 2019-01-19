@@ -12,33 +12,37 @@ import com.bl.utility.Util;
 public class WordSearch {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
+		//String path = "/home/bridgelabz/Desktop/Aayush/sample.txt";
 		String[] words;
-		String line ="";
+		String line= "";
 		String key;
 		int result;
-		Scanner sc= new Scanner(System.in);
+		
+		Scanner sc = new Scanner(System.in);
 		
 		System.out.println("enter the path");
-		String path =sc.nextLine();
-		
-		try(BufferedReader br = new BufferedReader(new FileReader(path))){
+		String path = sc.next();
+		try(BufferedReader br = new BufferedReader(new FileReader(path)))
+		{
 			String temp = null;
 			while((temp = br.readLine())!= null)
 			{
 				line += temp;
 			}
 			words = line.split(",");
+			System.out.println("\nwords list before sorting: \n ");
+			Util.printStringArray(words);
 			Arrays.sort(words);
-			System.out.println("Words list :");
+			System.out.println("\nWords list after sorting: \n");
 			Util.printStringArray(words);
 			do {
-				System.out.println("Enter the key...!");
+				System.out.println("\nEnter the key...!");
 				key = Util.getString();
 			}while(key.trim().equals("") || key == null);
 
 			result = Util.binarySearch(words, key);
-			if(result > 0)
+			if(result >= 0)
 				System.out.println("Key '"+ key+"' found at position "+result);
 			else
 				System.out.println("Key '"+key+"' not found...!");
@@ -48,6 +52,5 @@ public class WordSearch {
 			e.printStackTrace();
 		}
 	}
+
 }
-	
-	
