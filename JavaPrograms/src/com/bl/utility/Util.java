@@ -1,11 +1,11 @@
 package com.bl.utility;
 
 import java.io.OutputStreamWriter;
-import java.util.Random;
 import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
+import java.util.Random;
 import java.util.Scanner;
 
 /// Until class for generics method
@@ -322,7 +322,22 @@ public class Util {
 		double dist = Math.sqrt(x*x + y*y);
 		return dist;
 	}
+	
+	/********************************************************************************************************/
+	/**
+	 * reads a string input from input device
+	 * @return a string
+	 */
+	public static String getString() 
+	{
+		String str = sc.next();
+		while(str.trim().equals("") || str == null) {
+			System.out.println("Enter a valid string...!");
+			str = sc.next();
+		}
+		return str;
 
+	}
 	/********************************************************************************************************/
 
 	public static void permutationRecursive(String str,int l,int r)
@@ -420,10 +435,31 @@ public class Util {
 		}while(value < 0);
 		return value;
 	}
+	
+	/**
+	 * function to print the integer elements of an integer array
+	 * @param A array of integers
+	 */
+	public static void printIntArray(int[] A) {
+		for (int i : A) {
+			System.out.print(i + " ");
+		}
+		System.out.println();
+	}
 
+	/**
+	 * function to print string elements of a string array
+	 * @param A array of strings
+	 */
+	public static void printStringArray(String[] A) {
+		for (String i : A) {
+			System.out.print("\t"+i);
+		}
+		System.out.println();
 
+	}
 	/**********************************************************************************************************************************************/
-	//ALGORITHM PROGRAMS//
+														//ALGORITHM PROGRAMS//
 
 
 	/**
@@ -895,6 +931,73 @@ public class Util {
 
 	/********************************************************************************************************/
 
+	/**
+	 * function converts decimal to binary
+	 * given the decimal number first it checks whether it is greater than 0
+	 * if yes then it firstly stores it in the String (binaryDigits)
+	 * and then it calcuates the mod of the given decimal 
+	 * finally it returns the number of binary digits present in the stirng 
+	 * @param decimal
+	 * @return binary digits.
+	 */
+	public static String toBinary(int decimal)
+	{
+		String binaryDigits = "";
+		while(decimal>=1)
+		{
+			binaryDigits += decimal%2;
+			decimal = decimal/2;
+       	}
+		String s2 ="";
+		if(binaryDigits.length()<8)
+		{
+			String s3="00000000";
+			s2=s3.substring(0, 8-binaryDigits.length());		
+		}
+		for(int i = binaryDigits.length()-1;i>=0;i--)
+		{
+			s2 += binaryDigits.charAt(i);
+		}
+		return s2;		
+	}	
+	
+	/**
+	 * function converts decimal to binary
+	 * take an temp var and store the number in your result
+	 * 
+	 * @param number
+	 * @return the decimal number
+	 */
+	public static int toDecimal(int number)
+	{
+		int decimal =0;
+		int base=1;
+		int temp = number;
+		while(temp!=0)
+		{
+			int lastDigit = temp%10;
+			temp=(int)temp/10;
+			decimal =decimal + lastDigit*base;
+			base = base*2;
+		}
+		return decimal;
+	}
+	
+	public static boolean powerTwo(int num)
+	{
+		if(num ==0)
+			return false;
+		
+		while(num!=1)
+		{ 
+			if(num % 2 !=0)
+				return false;
+			num = num/2;
+		}
+		return true;
+	}
+	
+	
 }
 
 
