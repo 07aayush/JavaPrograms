@@ -7,14 +7,14 @@ import com.bl.utility.Util;
 public class GuessingNumberGame {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+	
 		int num = 0;
 		if(args.length  < 1) {
-			System.out.println("Provide a number(2^n) as command line argument...!");
+			System.out.println("Provide a number...!");
 			return;
 		}
 		num = Integer.parseInt(args[0]);
-		//reading n first counting numbers including 0 
+		 
 		int[] arr = new int[num];
 		for(int i =0; i < num ; i++) {
 			   arr[i] = i;
