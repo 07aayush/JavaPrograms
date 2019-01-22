@@ -28,7 +28,7 @@ public class MyQueue<T> implements QueueList<T> {
 		// TODO Auto-generated method stub
 		if (isFull()) 
 		{
-			System.out.println("Queue is full...Remove some items before enqueuing...!");
+			System.out.println("Queue is full");
 			return; 
 		}	
 		rear = (rear +1) % capacity;
@@ -42,14 +42,14 @@ public class MyQueue<T> implements QueueList<T> {
 
 		if (isEmpty()) 
 		{
-			System.out.println("Queue is empty...Enqueue some items before dequeuing it...!");
+			System.out.println("Queue is empty!");
 			System.exit(1);
 		}
 		T item = elements[front]; 
 		front = (front + 1) % capacity; 
 		size = size - 1; 
 		return item; 
-		
+
 	}
 
 	@Override

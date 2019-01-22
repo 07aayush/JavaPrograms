@@ -10,6 +10,7 @@ public interface List<T> {
 	public int size();
 	public T pop(int pos);
 	public T pop();
+	int index(T item);
 	public void writeToFile(OrderedList<T> list, String filePath);
 }
 

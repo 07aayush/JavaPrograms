@@ -1,1 +1,1 @@
-hello,hi,aayush,how,are,you
+hello,aayush,how,are,
