@@ -1,62 +1,84 @@
 package com.bl.DataStructures;
 
-public class MyQueue<T> implements QueueList<T> {
+import java.util.Arrays;
 
-	final int capacity = Constants.STACKSIZE;
-	private T[] elements = (T[])new Object[capacity];;
-	private int front =0;
-	private int rear=-1;
-	private int size=0;
+public class MyQueue<T>  {
 
-	public int size() {
-		// TODO Auto-generated method stub
+	int size;
 
-		return size;
+	Object s[];		//create object array 
+
+	int front,rear = -1;
+
+	/**
+	 * Constructor to initialize the queue size
+	 */
+	MyQueue(int size)
+	{
+		this.size=size;
+
+		s=new Object[size];
 	}
-
-	@Override
-	public boolean isEmpty() {
-		// TODO Auto-generated method stub
-		if (size==0)
-			return true;
-		else
-			return false;
-	}
-
-	@Override
-	public void enqueue(T ele) {
-		// TODO Auto-generated method stub
-		if (isFull()) 
+	
+	/**
+	 * to check if the array(dqueue) is empty
+	 * @return  : boolean
+	 */
+	boolean isempty()
+	{
+		if(rear==-1 && front==-1)
 		{
-			System.out.println("Queue is full");
-			return; 
+			return true;			
+			//System.out.println("Queue is empty");
+
 		}	
-		rear = (rear +1) % capacity;
-		elements[rear] = ele;
-		size++;
-
+		else 
+			return false;	
 	}
 
-	@Override
-	public T dequeue() {
-
-		if (isEmpty()) 
+	/**
+	 * to add element from REAR end 
+	 * @param o
+	 * @return : object
+	 */
+	public boolean enqueue(Object o)
+	{
+		if(rear==size-1)
 		{
-			System.out.println("Queue is empty!");
-			System.exit(1);
+			System.out.println("Stack OVERflow");
+			return false;
 		}
-		T item = elements[front]; 
-		front = (front + 1) % capacity; 
-		size = size - 1; 
-		return item; 
 
-	}
+		s[++rear]= o;
 
-	@Override
-	public boolean isFull() {
-		// TODO Auto-generated method stub
-		return (size==capacity);
+		return true;
 	}
 
 
+	/**
+	 * QUEUE FOLLOWS-----FIFO only
+	 * so to remove element from the Front end 
+	 * @return  :  object
+	 */
+	public Object dequeue()
+	{   
+		if(front==-1)
+		{
+			System.out.println("Queue is underflow ");
+		} 
+
+		Object e= s[front];
+
+		front++;
+		return e;
+	}
+	/**
+	 * print the QUEUE 
+	 * @return : String
+	 *  
+	 */
+	public String toString()
+	{
+		return "Myqueue [size=" + size + ", s=" + Arrays.toString(s) + ", front=" + front + ", rear=" + rear + "]";
+	}	
 }

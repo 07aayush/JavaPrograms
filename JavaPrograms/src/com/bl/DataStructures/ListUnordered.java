@@ -6,7 +6,7 @@ public interface ListUnordered<T> {
 	public void print();
 	boolean contains(T ele);
 	boolean remove(T ele);
-	int size();
+	public int size();
 	boolean isEmpty();
 	void append(T item);
 	void insert(int pos, T item);
