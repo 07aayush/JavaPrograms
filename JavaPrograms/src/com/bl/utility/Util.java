@@ -1,4 +1,4 @@
-package com.bl.utility;
+ package com.bl.utility;
 
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
@@ -996,8 +996,30 @@ public class Util {
 		}
 		return true;
 	}
+	public static int nibbleSwap(int Number)
+	{
+	String binaryString=toBinary(Number);
+	int  x=8-binaryString.length();
+	String s="";
+	for(int i=0;i<x;i++)
+	{
+		s+="0";
+	}
 	
+	binaryString=s+binaryString;
+	String firstnibble=binaryString.substring(0,4);
+	String secondnibble=binaryString.substring(4);
+	binaryString=secondnibble+firstnibble;
+	x=1;
+	int changeNumber=0;
+	for(int start=binaryString.length()-1;start>=0;start--)
+	{
+		changeNumber=changeNumber+(Integer.parseInt(binaryString.charAt(start)+""))*x;
+		x=x*2;
+	}
+	return changeNumber;
 	
+}
 }
 
 

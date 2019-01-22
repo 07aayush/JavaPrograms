@@ -3,6 +3,7 @@ package com.bl.DataStructures;
 public class MyStack<T> implements Stack<T> {
 	
 	final int capacity = Constants.STACKSIZE;
+	@SuppressWarnings("unused")
 	private T[] elements;
 	private int size;
 	private Node<T> top;
@@ -29,7 +30,7 @@ public class MyStack<T> implements Stack<T> {
 
 	@Override
 	public void print() {
-		Node t = top;
+		Node<T> t = top;
 		while(t!=null)
 		{
 			System.out.print(t.data+"->");

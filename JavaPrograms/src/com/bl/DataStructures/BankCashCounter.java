@@ -15,7 +15,7 @@ public class BankCashCounter {
 		int n = sc.nextInt();
 
 		//create the implemented Queue object and then pass it to the no of ppl  for enqueuing
-		MyQueue queue = new MyQueue(n);
+		MyQueue<Object> queue = new MyQueue<Object>(n);
 
 		//imput names of people
 		for(int i = 1;i<=n;i++)
@@ -81,6 +81,7 @@ public class BankCashCounter {
 				}
 				queue.dequeue(); //it is---->Myqueue method
 				System.out.println("------------Thankyou----------");
+				sc.close();
 
 			}
 

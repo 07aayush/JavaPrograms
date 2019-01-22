@@ -9,20 +9,16 @@ public class MyQueue<T>  {
 	Object s[];		//create object array 
 
 	int front,rear = -1;
-
-	/**
-	 * Constructor to initialize the queue size
-	 */
 	MyQueue(int size)
 	{
 		this.size=size;
 
 		s=new Object[size];
 	}
-	
+
 	/**
-	 * to check if the array(dqueue) is empty
-	 * @return  : boolean
+	 * to check if the array(queue) is empty
+	 * @return boolean
 	 */
 	boolean isempty()
 	{
@@ -37,7 +33,7 @@ public class MyQueue<T>  {
 	}
 
 	/**
-	 * to add element from REAR end 
+	 * to add element from rear end 
 	 * @param o
 	 * @return : object
 	 */
@@ -48,15 +44,10 @@ public class MyQueue<T>  {
 			System.out.println("Stack OVERflow");
 			return false;
 		}
-
 		s[++rear]= o;
-
 		return true;
 	}
-
-
 	/**
-	 * QUEUE FOLLOWS-----FIFO only
 	 * so to remove element from the Front end 
 	 * @return  :  object
 	 */
@@ -73,7 +64,7 @@ public class MyQueue<T>  {
 		return e;
 	}
 	/**
-	 * print the QUEUE 
+	 * print the queue 
 	 * @return : String
 	 *  
 	 */

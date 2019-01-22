@@ -1,7 +1,4 @@
 package com.bl.Algorithms;
-
-import java.util.Scanner;
-
 import com.bl.utility.Util;
 
 public class GuessingNumberGame {

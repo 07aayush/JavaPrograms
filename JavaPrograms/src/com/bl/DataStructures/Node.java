@@ -3,7 +3,7 @@ package com.bl.DataStructures;
 class Node<T> implements Comparable<T> {
 	
 	protected T data;
-	protected Node next;
+	protected Node<T> next;
 	
 	
 	public Node()   {
@@ -20,10 +20,10 @@ class Node<T> implements Comparable<T> {
 	public void setData(T data) {
 		this.data = data;
 	}
-	public Node getNext() {
+	public Node<T> getNext() {
 		return next;
 	}
-	public void setNext(Node next) {
+	public void setNext(Node<T> next) {
 		this.next = next;
 	}
 	@Override
@@ -42,7 +42,8 @@ class Node<T> implements Comparable<T> {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Node other = (Node) obj;
+		@SuppressWarnings("unchecked")
+		Node<T> other = (Node<T>) obj;
 		if (data == null) {
 			if (other.data != null)
 				return false;
@@ -59,6 +60,7 @@ class Node<T> implements Comparable<T> {
 	public String toString() {
 		return "Node [data=" + data + ", next=" + next + "]";
 	}
+	@SuppressWarnings("unchecked")
 	public int compareTo(T element) {
 		// TODO Auto-generated method stub
 		return ((Comparable<T>) this.getData()).compareTo(element);

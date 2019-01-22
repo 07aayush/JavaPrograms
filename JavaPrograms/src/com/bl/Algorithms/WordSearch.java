@@ -12,15 +12,15 @@ import com.bl.utility.Util;
 public class WordSearch {
 
 	public static void main(String[] args) {
-		
+
 		//String path = "/home/bridgelabz/Desktop/Aayush/sample.txt";
 		String[] words;
 		String line= "";
 		String key;
 		int result;
-		
+
 		Scanner sc = new Scanner(System.in);
-		
+
 		System.out.println("enter the path");
 		String path = sc.next();
 		try(BufferedReader br = new BufferedReader(new FileReader(path)))
@@ -46,6 +46,7 @@ public class WordSearch {
 				System.out.println("Key '"+ key+"' found at position "+result);
 			else
 				System.out.println("Key '"+key+"' not found...!");
+			sc.close();
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {

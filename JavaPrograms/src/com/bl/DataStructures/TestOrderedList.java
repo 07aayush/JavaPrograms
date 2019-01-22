@@ -19,6 +19,7 @@ public class TestOrderedList {
 		String line ="";
 
 		try {
+			@SuppressWarnings("resource")
 			BufferedReader br = new BufferedReader(new FileReader(path));
 			String temp=null;
 			while((temp = br.readLine())!= null)
@@ -55,6 +56,8 @@ public class TestOrderedList {
 			catch(InputMismatchException e) {
 				System.out.println("Key must be a number ...!");
 			}
+			sc.close();
+			
 			//write back the list to file
 			list.writeToFile(list,path);
 		} catch (FileNotFoundException e) {

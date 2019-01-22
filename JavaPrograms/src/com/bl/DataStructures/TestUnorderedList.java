@@ -19,10 +19,12 @@ public class TestUnorderedList {
 			String line= "";
 			
 			
+			@SuppressWarnings("resource")
 			Scanner sc = new Scanner(System.in);
 			System.out.println("enter the path");
 			String path =sc.next();
 			try {
+			@SuppressWarnings("resource")
 			BufferedReader br = new BufferedReader( new FileReader(path));
 			String temp = null;
 			while((temp = br.readLine())!= null)
@@ -31,7 +33,7 @@ public class TestUnorderedList {
 			}
 			words = line.split(",");
 			//create a linked list for the words
-			UnorderedListImpl<String> list = new UnorderedListImpl();
+			UnorderedListImpl<String> list = new UnorderedListImpl<String>();
 			for(int i = 0; i < words.length ; i++) {
 				list.add(words[i]);
 			}

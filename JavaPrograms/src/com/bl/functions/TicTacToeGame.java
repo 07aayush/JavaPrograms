@@ -40,6 +40,7 @@ public class TicTacToeGame {
 				while (move<0 || move>9 || board[move/3][move%3] != EMPTY) {
 					System.out.println("Please enter your move(0-9): ");
 					move = sc.nextInt();
+					sc.close();
 
 				}
 			} else {
@@ -101,6 +102,7 @@ public class TicTacToeGame {
 		System.out.print(printChar(board[2][1]));
 		System.out.print("|");
 		System.out.println(printChar(board[2][2]));
+		
 	}
 
 	// Return an X or O, depending upon whose move it was
@@ -178,8 +180,7 @@ public class TicTacToeGame {
 		while(board[move/3][move%3] != EMPTY) 
 			move = (int)(Math.random()*9);
 		return move;
-		
-	}
+		}
 
 }
 

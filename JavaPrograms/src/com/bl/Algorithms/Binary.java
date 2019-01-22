@@ -21,6 +21,7 @@ public class Binary {
 			System.out.println(dec+" is pow of 2");
 		else
 			System.out.println(dec+" is not pow of 2");
+		sc.close();
 	}
 
 }

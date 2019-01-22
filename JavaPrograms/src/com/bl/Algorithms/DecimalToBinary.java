@@ -19,24 +19,6 @@ public class DecimalToBinary {
 		while(decimalNumber <= 0);
 		System.out.println("the binary number is "+Util.toBinary(decimalNumber));
 		sc.close();
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-/*
-		
-		System.out.print("Enter a binary number: ");
-		String binaryString =input.next();
-		System.out.println("Output: "+Integer.parseInt(binaryString,2));
-*/
 	}
 
 }
