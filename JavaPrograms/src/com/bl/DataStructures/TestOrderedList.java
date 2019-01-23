@@ -13,7 +13,7 @@ public class TestOrderedList {
 	{
 		// TODO Auto-generated method stub
 		Scanner sc = new Scanner(System.in);
-		String path ="/home/bridgelabz/Desktop/b.txt";
+		String path ="/home/bridgelabz/Desktop/Aayush/b.txt";
 		String[] number;
 		int key;
 		String line ="";

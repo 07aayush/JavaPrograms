@@ -13,17 +13,17 @@ public class TestUnorderedList {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
-	
-			String[] words;
-			String key;
-			String line= "";
-			
-			
-			@SuppressWarnings("resource")
-			Scanner sc = new Scanner(System.in);
-			System.out.println("enter the path");
-			String path =sc.next();
-			try {
+
+		String[] words;
+		String key;
+		String line= "";
+
+
+		@SuppressWarnings("resource")
+		Scanner sc = new Scanner(System.in);
+		System.out.println("enter the path");
+		String path =sc.next();
+		try {
 			@SuppressWarnings("resource")
 			BufferedReader br = new BufferedReader( new FileReader(path));
 			String temp = null;
@@ -37,10 +37,8 @@ public class TestUnorderedList {
 			for(int i = 0; i < words.length ; i++) {
 				list.add(words[i]);
 			}
-			//System.out.println("Words list :");
-			//display data of each node in the list
 			list.print();
-	        //read the key to be searched
+			//read the key to be searched
 			do {
 				System.out.println("Enter the key...!");
 				key = Util.getString();
@@ -64,8 +62,8 @@ public class TestUnorderedList {
 			e.printStackTrace();
 		}
 	}
-			
 
-		}
-	
+
+}
+
 

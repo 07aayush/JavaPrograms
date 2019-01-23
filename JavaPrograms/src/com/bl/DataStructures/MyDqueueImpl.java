@@ -7,13 +7,8 @@ public class MyDqueueImpl<T> //implements  DqueueList<T>
 	int size;	//size of the DEQUE
 	Object s[];		//create object array 
 	int front,rear = -1;
+	private int length;
 
-	public  MyDqueueImpl(int size)
-	{
-		this.size=size;
-
-		s=new Object[size];
-	}
 
 	/**
 	 * dqueue follows insert from both end
@@ -39,7 +34,7 @@ public class MyDqueueImpl<T> //implements  DqueueList<T>
 	 * so to remove element from the Front end 
 	 * @return  :  object
 	 */
-	public Object deleteFront() //remove element from front //here
+	public Object deleteFront() //remove element from front 
 	{   
 		if(front==-1)
 		{
@@ -101,6 +96,8 @@ public class MyDqueueImpl<T> //implements  DqueueList<T>
 		rear--;
 
 		return e;
+		
+		
 	}
 
 	/**
@@ -111,5 +108,10 @@ public class MyDqueueImpl<T> //implements  DqueueList<T>
 	public String toString()
 	{
 		return "Myqueue [size=" + size + ", s=" + Arrays.toString(s) + ", front=" + front + ", rear=" + rear + "]";
+	}
+
+	public int size() {
+		// TODO Auto-generated method stub
+		return size;
 	}
 }

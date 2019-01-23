@@ -38,9 +38,7 @@ public class BankCashCounter {
 		System.out.println("\n"+"The people in Queue are as follows:" );
 		System.out.println( queue.toString() );
 
-		/**
-		 * perForming operation for each Person like dequeue etc
-		 */
+		
 		{
 
 			for(int i=1;i<n;i++)

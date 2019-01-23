@@ -51,13 +51,13 @@ public class BinarySerchTree {
 	}
 	static int binomialCoeff(int n) 
 	{ 
-		int bino,downval;
+		int b,d;
 
-		downval=(factorial(n+1) * factorial(n));
+		d=(factorial(n+1) * factorial(n));
 
-		bino=(factorial(2*n))/downval;
+		b=(factorial(2*n))/d;
 
-		return bino;
+		return b;
 	}
 
 
@@ -83,6 +83,7 @@ public class BinarySerchTree {
 		// print count of BST and  
 		// binary trees with n nodes 
 		System.out.println("Count of BST with "+  n +" nodes is "+  count1); 
+		sc.close();
 
 	} 
 }

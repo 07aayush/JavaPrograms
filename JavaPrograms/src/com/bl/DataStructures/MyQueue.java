@@ -9,9 +9,9 @@ public class MyQueue<T>  {
 	Object s[];		//create object array 
 
 	int front,rear = -1;
-	MyQueue(int size)
+	MyQueue(int n)
 	{
-		this.size=size;
+		size=this.size;
 
 		s=new Object[size];
 	}
@@ -41,7 +41,7 @@ public class MyQueue<T>  {
 	{
 		if(rear==size-1)
 		{
-			System.out.println("Stack OVERflow");
+			System.out.println("Stack overflow");
 			return false;
 		}
 		s[++rear]= o;
@@ -71,5 +71,11 @@ public class MyQueue<T>  {
 	public String toString()
 	{
 		return "Myqueue [size=" + size + ", s=" + Arrays.toString(s) + ", front=" + front + ", rear=" + rear + "]";
-	}	
+	}
+
+	public int size() {
+		// TODO Auto-generated method stub
+		return size;
+	}
+	
 }

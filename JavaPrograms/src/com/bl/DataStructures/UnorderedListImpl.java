@@ -193,7 +193,6 @@ public class UnorderedListImpl<T> implements ListUnordered<T> {
 			//traverse to reach the last item in the list
 			count++;
 			if(count == pos && count == 0)
-				// removal at 0th position, update first
 			{
 				first = curr.getNext();
 				curr.setNext(null);
