@@ -1,4 +1,4 @@
- package com.bl.utility;
+package com.bl.utility;
 
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
@@ -322,7 +322,7 @@ public class Util {
 		double dist = Math.sqrt(x*x + y*y);
 		return dist;
 	}
-	
+
 	/********************************************************************************************************/
 	/**
 	 * reads a string input from input device
@@ -435,7 +435,7 @@ public class Util {
 		}while(value < 0);
 		return value;
 	}
-	
+
 	/**
 	 * function to print the integer elements of an integer array
 	 * @param A array of integers
@@ -459,7 +459,7 @@ public class Util {
 
 	}
 	/**********************************************************************************************************************************************/
-														//ALGORITHM PROGRAMS//
+	//ALGORITHM PROGRAMS//
 
 
 	/**
@@ -947,7 +947,7 @@ public class Util {
 		{
 			binaryDigits += decimal%2;
 			decimal = decimal/2;
-       	}
+		}
 		String s2 ="";
 		if(binaryDigits.length()<8)
 		{
@@ -960,7 +960,7 @@ public class Util {
 		}
 		return s2;		
 	}	
-	
+
 	/**
 	 * function converts decimal to binary
 	 * take an temp var and store the number in your result
@@ -982,46 +982,73 @@ public class Util {
 		}
 		return decimal;
 	}
-	
-	public static boolean powerTwo(int num)
+
+	public static boolean isPowerTwo(int num)
 	{
-		if(num ==0)
-			return false;
-		
-		while(num!=1)
+		if (num == 0) 
+			return false; 
+
+		while (num != 1) 
 		{ 
-			if(num % 2 !=0)
-				return false;
-			num = num/2;
-		}
-		return true;
+			if (num % 2 != 0) 
+				return false; 
+			num = num / 2; 
+		} 
+		return true; 
 	}
+
 	public static int nibbleSwap(int Number)
 	{
-	String binaryString=toBinary(Number);
-	int  x=8-binaryString.length();
-	String s="";
-	for(int i=0;i<x;i++)
-	{
-		s+="0";
+		String binaryString=toBinary(Number);
+		int  x=8-binaryString.length();
+		String s="";
+		for(int i=0;i<x;i++)
+		{
+			s+="0";
+		}
+
+		binaryString=s+binaryString;
+		String firstnibble=binaryString.substring(0,4);
+		String secondnibble=binaryString.substring(4);
+		binaryString=secondnibble+firstnibble;
+		x=1;
+		int changeNumber=0;
+		for(int start=binaryString.length()-1;start>=0;start--)
+		{
+			changeNumber=changeNumber+(Integer.parseInt(binaryString.charAt(start)+""))*x;
+			x=x*2;
+		}
+		return changeNumber;
+
 	}
-	
-	binaryString=s+binaryString;
-	String firstnibble=binaryString.substring(0,4);
-	String secondnibble=binaryString.substring(4);
-	binaryString=secondnibble+firstnibble;
-	x=1;
-	int changeNumber=0;
-	for(int start=binaryString.length()-1;start>=0;start--)
+
+	public static int calander(int day,int month,int year)
 	{
-		changeNumber=changeNumber+(Integer.parseInt(binaryString.charAt(start)+""))*x;
-		x=x*2;
+		int y= year-(14-month)/12;    
+		int d = y + (y / 4) - (y / 100) + (year / 400);
+		int m = month + 12 * ((14 - month) / 12) - 2;
+		int dateofday = (day + d + ((31 * m) / 12)) % 7;
+	//System.out.println("day: "+day +"   Month: "+month+"   Year: "+year);
+//		System.out.print("the day was:");
+//
+//		switch(dateofday)		///find day
+//		{
+//		case 0: System.out.println("Sunday");
+//		break;
+//		case 1: System.out.println("Monday");
+//		break;
+//		case 2: System.out.println("Tuesday");
+//		break;
+//		case 3: System.out.println("Wednesday");
+//		break;
+//		case 4: System.out.println("Thrusday");
+//		break;
+//		case 5: System.out.println("Friday");
+//		break;
+//		case 6: System.out.println("Saturday");
+//		break;
+//		}
+		return dateofday;
 	}
-	return changeNumber;
-	
+
 }
-}
-
-
-
-

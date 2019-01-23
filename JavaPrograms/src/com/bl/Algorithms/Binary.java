@@ -17,7 +17,7 @@ public class Binary {
 		
 		int dec=Util.toDecimal(bin);
 		System.out.println(dec);
-		if(Util.powerTwo(dec) == true)
+		if(Util.isPowerTwo(dec) == true)
 			System.out.println(dec+" is pow of 2");
 		else
 			System.out.println(dec+" is not pow of 2");
