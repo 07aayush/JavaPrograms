@@ -37,12 +37,7 @@ public class CalanderStack {
 			System.out.print("  ");
 		}
 		for(int i=1;i<=date[month];i++) {
-//			if(i<10) {
-//				System.out.print(" "+dateQueue.pop()+"\t");
-//			}
-//			if(i>9) {
-//				System.out.print(" "+dateQueue.pop()+"\t");
-//			}
+
 			System.out.print(" "+dateQueue.pop()+"\t");
 			if((i+day)%7==0){
 				System.out.println();

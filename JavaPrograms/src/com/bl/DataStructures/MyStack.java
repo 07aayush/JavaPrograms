@@ -1,19 +1,19 @@
 package com.bl.DataStructures;
 
 public class MyStack<T> implements Stack<T> {
-	
+
 	final int capacity = Constants.STACKSIZE;
 	@SuppressWarnings("unused")
 	private T[] elements;
 	private int size;
 	Node<T> top= null;
-	
+
 	public MyStack() {
 		this.top=null;
 	}
 	@Override
 	public void push(T ele) {
-		
+
 		Node<T> n = new Node<T>(ele);
 		n.next = top;
 		top = n;
@@ -26,9 +26,9 @@ public class MyStack<T> implements Stack<T> {
 			return null;
 		else
 		{
-		T ele = top.data;
-		top = top.next;
-		return ele;
+			T ele = top.data;
+			top = top.next;
+			return ele;
 		}
 	}
 
@@ -51,7 +51,7 @@ public class MyStack<T> implements Stack<T> {
 
 	public int getStackCapacity() {
 		return capacity;
-		
+
 	}
 	@Override
 	public boolean isEmpty() {
