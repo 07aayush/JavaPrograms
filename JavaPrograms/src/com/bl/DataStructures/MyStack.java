@@ -6,8 +6,11 @@ public class MyStack<T> implements Stack<T> {
 	@SuppressWarnings("unused")
 	private T[] elements;
 	private int size;
-	private Node<T> top;
+	Node<T> top= null;
 	
+	public MyStack() {
+		this.top=null;
+	}
 	@Override
 	public void push(T ele) {
 		
@@ -17,12 +20,16 @@ public class MyStack<T> implements Stack<T> {
 	}
 
 	@Override
-	public T pop() {
+	public T pop()
+	{
 		if(top==null)
-			System.out.println("empty stack");
+			return null;
+		else
+		{
 		T ele = top.data;
 		top = top.next;
 		return ele;
+		}
 	}
 
 	@Override

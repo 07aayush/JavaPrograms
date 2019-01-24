@@ -34,15 +34,16 @@ public class CalanderStack {
 		}
 		System.out.println();
 		for(int i=0;i<(day*5);i++) {
-			System.out.print(" ");
+			System.out.print("  ");
 		}
-		for(int i=0;i<=date[month];i++) {
-			if(i<10) {
-				System.out.print(" "+dateQueue.pop()+"\t");
-			}
-			if(i>9) {
-				System.out.print(" "+dateQueue.pop()+"\t");
-			}
+		for(int i=1;i<=date[month];i++) {
+//			if(i<10) {
+//				System.out.print(" "+dateQueue.pop()+"\t");
+//			}
+//			if(i>9) {
+//				System.out.print(" "+dateQueue.pop()+"\t");
+//			}
+			System.out.print(" "+dateQueue.pop()+"\t");
 			if((i+day)%7==0){
 				System.out.println();
 			}
