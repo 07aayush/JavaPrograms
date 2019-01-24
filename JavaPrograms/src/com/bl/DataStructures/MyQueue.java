@@ -9,13 +9,14 @@ public class MyQueue<T>  {
 	Object s[];		//create object array 
 
 	int front,rear = -1;
-	MyQueue(int n)
+	
+	MyQueue(int size)
 	{
-		size=this.size;
-
+		this.size=size;
+		
 		s=new Object[size];
 	}
-
+	
 	/**
 	 * to check if the array(queue) is empty
 	 * @return boolean

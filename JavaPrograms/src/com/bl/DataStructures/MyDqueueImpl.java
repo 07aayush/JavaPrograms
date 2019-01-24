@@ -7,7 +7,14 @@ public class MyDqueueImpl<T> //implements  DqueueList<T>
 	int size;	//size of the DEQUE
 	Object s[];		//create object array 
 	int front,rear = -1;
-	private int length;
+
+	MyDqueueImpl(int size)
+	{
+		this.size=size;
+		
+		s=new Object[size];
+	}
+
 
 
 	/**
@@ -16,88 +23,105 @@ public class MyDqueueImpl<T> //implements  DqueueList<T>
 	 * @param o
 	 * @return : object
 	 */
-	public boolean insertFront(Object o)
+	boolean frontenqueue(Object o)
 	{
+		if(isempty())
+		{
+			System.out.println("Stack underflow");
+			return false;
+		}
+		
 		if(front-1>=0)   //as arr start index is----0 , so front should not exceed 0
 		{
 			s[front-1]= o;
-
+			
 			front--;     
 			return true;
 		}
-
-		return false;
+		
+	   return false;
 	}
-
+	
 	/**
-	 * dqueue follows removal from both end 
+	 * DEQUEUE FOLLOWS-----insert both end & remove from both end 
 	 * so to remove element from the Front end 
 	 * @return  :  object
 	 */
-	public Object deleteFront() //remove element from front 
+	Object frontdequeue() //remove element from front //here
 	{   
 		if(front==-1)
 		{
 			System.out.println("Queue is underflow ");
 		} 
-
-		Object e= s[front];
-
-		front++;
-		return e;
+		
+	    Object e= s[front];
+	    
+	    front++;
+		  return e;
 	}
-
-	/** 
+	
+	
+	/**
+	 * DEQUEUE FOLLOWS-----insert both end & remove from both end 
 	 * to check if the array(dqueue ) is empty
 	 * @return  : boolean
 	 */
-	public	boolean isempty()
+	boolean isempty()
 	{
 		if(rear==-1 && front==-1)
 		{
 			return true;			
+			//System.out.println("Queue is empty");
+			
 		}	
 		else 
 			return false;	
 	}
+	
 	/**
-	 * dqueue follows insertion from both end
+	 * DEQUEUE FOLLOWS-----insert both end & remove from both end 
+	 * to add element from REAR end 
+	 * @param o
+	 * @return : object
+	 */
+	
+	
+	/**
+	 * DEQUEUE FOLLOWS-----insert both end & remove from both end 
 	 * to add element from REAR side
 	 * @param o: Object passed
 	 * @return : object
 	 */
-	public	boolean insertRear(Object o)
+	boolean rearenqueue(Object o)
 	{
 		if(rear==size-1)
 		{
 			System.out.println("Stack OVERflow");
 			return false;
 		}
-
+		
 		s[++rear]= o;
 
-		return true;
+		   return true;
 	}
-
+	
 	/**
-	 * dqueue follows removal from both end 
-	 * so to remove element from the rear end 
+	 * DEQUEUE FOLLOWS-----insert both end & remove from both end 
+	 * so to remove element from the Front end 
 	 * @return  :  object
 	 */
-	public Object deleteRear() 
+	Object reardequeue() //remove element from front //here
 	{   
 		if(rear==-1)
 		{
 			System.out.println("Queue is underflow ");
 		} 
-
-		Object e= s[rear];
-
-		rear--;
-
-		return e;
 		
-		
+	    Object e= s[rear];
+	    
+	    rear--;
+	    
+		  return e;
 	}
 
 	/**
@@ -105,13 +129,9 @@ public class MyDqueueImpl<T> //implements  DqueueList<T>
 	 * @return : String
 	 *  
 	 */
-	public String toString()
-	{
+    public String toString()
+    {
 		return "Myqueue [size=" + size + ", s=" + Arrays.toString(s) + ", front=" + front + ", rear=" + rear + "]";
 	}
-
-	public int size() {
-		// TODO Auto-generated method stub
-		return size;
-	}
 }
+	

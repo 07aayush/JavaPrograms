@@ -18,6 +18,8 @@ public class MyStack<T> implements Stack<T> {
 
 	@Override
 	public T pop() {
+		if(top==null)
+			System.out.println("empty stack");
 		T ele = top.data;
 		top = top.next;
 		return ele;

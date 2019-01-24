@@ -3,6 +3,7 @@ package com.bl.utility;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Random;
@@ -59,8 +60,6 @@ public class Util {
 	 */
 	public static void checkYear(int year)
 	{
-
-
 		if((year % 400== 0) || ((year % 4 == 0) && (year % 100 != 0)))
 
 			System.out.println("year "+year+" is a leap year"); 
@@ -69,6 +68,7 @@ public class Util {
 
 	}
 
+	
 	/********************************************************************************************************/
 
 	/**
@@ -365,7 +365,31 @@ public class Util {
 		charArr[i] =temp;
 		return String.valueOf(charArr);
 	}
-
+	
+	/**
+	 * To generate all permutation of String using Iterative method
+	 * @param sentance is a String type
+	 * @return type is a array of integer
+	 */
+	public static String[] permutationOfStringIterative(String sentance) {
+		List<String> results = new ArrayList<String>();
+		char[] chars = sentance.toCharArray();
+		results.add(new String("" + chars[0]));
+		//looping over every chars 
+		for(int j=1; j<chars.length; j++) {
+			char c = chars[j];
+			int currentSize = results.size();
+			//creating new permutations by combining char 'c' with each of the existing permutations
+			for(int i=currentSize-1; i>=0; i--) {
+				String str = results.remove(i);
+				for(int l=0; l<=str.length(); l++) {
+					results.add(str.substring(0,l) + c + str.substring(l));
+				}
+			}
+		}
+		String[] permutations = results.toArray(new String[results.size()]);
+		return permutations;
+	}
 	/********************************************************************************************************/
 
 	/**
@@ -469,7 +493,7 @@ public class Util {
 	 * checks two strings Anagram or not
 	 * 
 	 */
-	public static boolean checkAnagram(String str1, String str2) {
+	public static  boolean checkAnagram(String str1, String str2) {
 		char[] str1Chars = str1.toLowerCase().toCharArray();
 		char[] str2Chars = str2.toLowerCase().toCharArray();
 		Arrays.sort(str1Chars);
@@ -527,7 +551,7 @@ public class Util {
 			for(int j= i+1; j < nums.size(); j++) {
 				Integer p1 = nums.get(i);
 				Integer p2 = nums.get(j);
-				anagram = Util.checkAnagram(p1.toString(), p2.toString());
+				anagram = checkAnagram(p1.toString(), p2.toString());
 				if(anagram) {
 					if(primeAnagrams.containsKey(p1))
 					{
@@ -1021,34 +1045,397 @@ public class Util {
 		return changeNumber;
 
 	}
-
-	public static int calander(int day,int month,int year)
+	
+	
+	public static int calendar(int date,int month,int year) 
 	{
-		int y= year-(14-month)/12;    
-		int d = y + (y / 4) - (y / 100) + (year / 400);
-		int m = month + 12 * ((14 - month) / 12) - 2;
-		int dateofday = (day + d + ((31 * m) / 12)) % 7;
-	//System.out.println("day: "+day +"   Month: "+month+"   Year: "+year);
-//		System.out.print("the day was:");
-//
-//		switch(dateofday)		///find day
-//		{
-//		case 0: System.out.println("Sunday");
-//		break;
-//		case 1: System.out.println("Monday");
-//		break;
-//		case 2: System.out.println("Tuesday");
-//		break;
-//		case 3: System.out.println("Wednesday");
-//		break;
-//		case 4: System.out.println("Thrusday");
-//		break;
-//		case 5: System.out.println("Friday");
-//		break;
-//		case 6: System.out.println("Saturday");
-//		break;
-//		}
-		return dateofday;
-	}
+	   
+      //Standard way---to find day	
+    	
+		int year0= year-(14-month)/12;    
+		
+		int x = year0 + (year0 / 4) - (year0 / 100) + (year / 400);
+		
+		int m0 = month + 12 * ((14 - month) / 12) - 2;
 
+		int dateofday = (date + x + ((31 * m0) / 12)) % 7;
+		return dateofday;
+		
+		
+	}
+	public static boolean isPrime3(int n) //e.g n=15 any no----from the given range
+	  {  
+		  int m = n/2;
+		  
+		  		if (n <= 1)  //e.g n=15
+		  		{  
+		  			return false;  
+		  		}  
+    
+		  	//e.g n=15
+		  	for (int i = 2; i <= m; i++) //------use use n/2 ,if we use MAth.sqrt(n) and if n=25...answer is 5...so directy print not p
+		  	{  
+		  			if (n % i == 0)
+		  			{  
+		  					return false;  
+		  			}  
+		  	}  
+     
+		  	return true;  
+	  }    
+	
+	public static boolean isPrime4(int n) //e.g n=15 any no----from the given range
+	  {  
+		  		if (n <= 1)  //e.g n=15
+		  		{  
+		  			return false;  
+		  		}  
+   
+		  	//e.g n=15
+		  	for (int i = 2; i <= Math.sqrt(n); i++) //------use math.sqrt(n) or use n/2
+		  	{  
+		  			if (n % i == 0)
+		  			{  
+		  					return false;  
+		  			}  
+		  	}  
+    
+		  	return true;  
+	  }  
+	
+	/**
+	  * to get palindrome of a no
+	  * @param m: no to take palindrome/reverse
+	  * @return : Integer
+	  */
+	 public static int Anagram4(int m) //reverse
+	  {
+		  int r,sum=0,temp; 
+		  
+		  //It is the number variable to be checked for palindrome    
+		  
+		  while(m>0)
+		  {    
+		     r =   m % 10;  //getting remainder  
+		     sum= ( sum * 10 ) + r;    
+		     m = m / 10;    
+		  }    
+		  
+        return sum; 
+	  }
+	
+	 public static boolean isPrime5(int n) //e.g n=15 any no----from the given range
+	  {  
+		  		if (n <= 1)  //e.g n=15
+		  		{  
+		  			return false;  
+		  		}  
+    
+		  	//e.g n=15
+		  	for (int i = 2; i <=Math.sqrt(n); i++) //------use math.sqrt(n) or use n/2
+		  	{  
+		  			if (n % i == 0)
+		  			{  
+		  					return false;  
+		  			}  
+		  	}  
+     
+		  	return true;  
+	  }  
+
+	 public static int Anagram5(int m)
+	  {
+		  int r,sum=0,temp; 
+		  
+		  //It is the number variable to be checked for palindrome    
+		  
+		  while(m>0)
+		  {    
+		     r =   m % 10;  //getting remainder  
+		     sum= ( sum * 10 ) + r;    
+		     m = m / 10;    
+		  }    
+		  
+        return sum; 
+	  }
+	 
+	 public boolean leapforCalender(int yearnumber)
+		{
+			boolean isLeapYear = true; 
+			if(String.valueOf(yearnumber).length()<4)
+			{
+				System.out.println("Please enter 4 digit number :");
+				yearnumber=sc.nextInt();
+				leap_year(yearnumber); 
+			}
+			
+			else if(yearnumber%4==0)
+			{
+				//if yr no. is divisible by 4 then check by 100
+				if(yearnumber%100==0)
+				{
+					//now checking no. is divisible by 400 or not
+					if(yearnumber%400==0)
+					{
+						//if no. divisible by 4,100 and 400 ie. leap year
+						return true;
+					}
+					else
+						return false;
+				}
+				//if no is divisible by 4 and not by 100 ,that is leap yr
+				else
+					return true;
+			}
+			else
+				return false;
+			return isLeapYear;
+		}
+		/** This method print calendar of any month and year 
+		 * @param month is user input that which month calender you want to print
+		 * @param year is user input whose calendar you want to print 
+		 */
+		public void printCalender(int month , int year)
+		{
+			String[] Month = {"January","February", "March","April", "May", "June","July", "August", "September",
+		            	"October", "November", "December"};
+			int[] noOfDays  = {0,31,28,31,30,31,30,31,31,30,31,30,31};
+			int result = Util.dayOfWeek(month, 1, year);
+			System.out.println("   "+Month[month-1]+" "+year);
+			if( month == 2 && leapforCalender(year) )
+			{
+				noOfDays[2] = 29;  //For leap year days will be 29
+			}									
+			System.out.println("S  M  Tu W  Th F  Sa  ");
+	 		for(int i = 0 ;i<result ; i++)
+	 		{
+	 			System.out.print("   ");
+	 		}
+	 		for(int i=1;i<=noOfDays[month];i++)
+	 		{
+	 			if(i<=9)
+	 			{
+	 				System.out.print(i+"  ");
+	 			}
+	 			else if(i>9)
+	 			{
+	 				System.out.print(i+" ");
+	 			}
+	 			if((result+i)%7==0)
+	 				System.out.println();
+	 		}
+	 		
+		}
+
+
+int n;
+public void leap_year(int yearnumber)
+		{
+			if(String.valueOf(yearnumber).length()<4)
+			{
+				System.out.println("Please enter 4 digit number :");
+				yearnumber=sc.nextInt();
+				leap_year(yearnumber);
+			}
+			
+			else if(yearnumber%4==0)
+			{
+				//if yr no. is divisible by 4 then check by 100
+				if(yearnumber%100==0)
+				{
+					//now checking no. is divisible by 400 or not
+					if(yearnumber%400==0)
+					{
+						//if no. divisible by 4,100 and 400 ie. leap year
+						System.out.println("\nIt is leap year");
+					}
+					else
+						System.out.println("\\nIt is not  leap year ");
+				}
+				//if no is divisible by 4 and not by 100 ,that is leap yr
+				else
+					System.out.println("\nIt is leap year");
+			}
+			else
+				System.out.println("\nIt is not leap year ");
+		}
+
+/**This method print prime number from 0 to n in 2 dimensional array
+ * @param primenumber is list of prime number from 1 to n
+ */
+public void twoDPrime(int[] primenumber)
+{
+	int row = 10 ,column = 27;
+		int[][] array = new int[row][column];
+		int temp = 100 , k=0;
+		for(int i = 0 ;i<row; i++)
+		{
+			for(int j= 0 ; j<column ; j++)
+			{
+				if(k<primenumber.length )
+			{
+					if(primenumber[k] <= temp )
+					{
+						array[i][j] = primenumber[k];
+						k = k+1;
+					}
+				} 
+			} 	
+			temp = temp + 100;
+		}
+		//printing in 2D array
+		System.out.println("");
+		for(int i = 0 ;i<row ; i++)
+		{
+			for(int j= 0 ; j<column ; j++)
+			{
+				if(primenumber[j]>0)
+				{
+					if(array[i][j] != 0)
+					{
+						System.out.print(array[i][j]+"\t");
+					}
+				}
+			}
+			System.out.println();
+		}
+}	
+/**This method print prime number from 0 to till the range
+ * whatever you want  
+ * @param range store number and till that it will print
+ * prime numbers
+ */
+public static int[] printingPrimeNumber(int range) 
+{
+	   boolean isPrime = true;
+	   int count = 0;
+	   int primeno[]=new int[range];		   
+	   for (int i = 0; i <= range; i++)         
+       { 		  
+          for(int j=2; j<i ;j++)
+          {
+        	     if(i%j==0)
+             	 {
+             	 	isPrime=false;
+             	 	break;
+             	 }
+             	 else 	
+        	     	isPrime=true;
+          	}
+          	if(isPrime==true)
+        	  primeno[count++]=i;
+       }
+	return primeno ;		     
 }
+
+public static void twoDPrimeAnagram(int[] anagram)
+{
+	int row = 20 ,column = 26;
+		int[][] anagramArray = new int[row][column];
+		int temp = 100 , k=0;
+		for(int i = 0 ;i<row; i++)
+		{
+			for(int j= 0 ; j<column ; j++)
+			{
+				if(k<anagram.length )
+			{
+					if(anagram[k] <= temp )
+					{
+						anagramArray[i][j] = anagram[k];
+						k = k+1;
+					}
+				} 
+			} 	
+			temp = temp + 100;
+		}
+		
+		System.out.println("");
+		for(int i = 0 ;i<row ; i++)
+		{
+			for(int j= 0 ; j<column ; j++)
+			{
+				if(anagram[j]>0)
+				{
+					//printing prime anagram numbers in 2D array
+					if(anagramArray[i][j] != 0)
+					{
+						System.out.print(anagramArray[i][j]+"\t");
+					}
+				}
+			}
+			System.out.println();
+		}
+}
+
+
+/**This method check that prime number is anagram or not
+ * @param primenumber:is prime numbers which we check that numbers are
+ * anangram or not
+ */
+public static int[] checkAnagram(int[] primenumber)
+{
+    System.out.println("\nThe prime number which are Anagram:");
+    int anagram = 0;
+    int[] anagramArray = new int[primenumber.length]; 
+    for (int  i = 0; i < primenumber.length; i++)
+    {
+        for (int j = 0; j < primenumber.length; j++)
+        {
+             if(primenumber[i]>0 && primenumber[j]>0 && primenumber[i]!=primenumber[j])
+             {     
+                 String string1 = Integer.toString(primenumber[i]);
+                 String string2 = Integer.toString(primenumber[j]);
+                 anagram=checkPrimeAnagram(string1, string2);
+                 if(anagram>0)
+                 {
+                	 anagramArray[i] = anagram;
+                	 //anagramArray[i]
+                 }
+             }
+        }
+    }
+	return anagramArray;				        
+}
+
+private static int checkPrimeAnagram(String string1, String string2)
+{
+	int anagram =0 ;
+	char[] ch1 = string1.toCharArray();
+    char[] ch2 = string2.toCharArray();
+    boolean result=false;
+    Arrays.sort(ch1);
+    Arrays.sort(ch2);
+    result = Arrays.equals(ch1,ch2);
+    if(result==true)
+    {
+    	anagram = Integer.parseInt(string1);
+    	//System.out.print(anagram+" ");
+    	return anagram;
+    }
+	return anagram;		
+}
+
+public static int hashFunction(int num) {
+	int reminder=num%11;
+	return reminder;
+}
+
+public static boolean isLeapYearFourDigits(int year) {
+	if((year%4)==0) {
+		if(year!=100 ) {
+			if ( year % 400 == 0) {
+                return  true;
+			} else {
+            	return  false;
+			}
+		}else {
+			return true;
+		}
+	}else {
+		return false;
+	}
+	
+}
+}
+
+
