@@ -1436,6 +1436,16 @@ public static boolean isLeapYearFourDigits(int year) {
 	}
 	
 }
+public static boolean getBoolean() {
+	return sc.nextBoolean();
+}
+/**
+ * scanner method to get Boolean 
+ * @return type is boolean
+ */
+public static double getDouble(){
+	return Double.parseDouble(sc.next());
+}
 }
 
 
