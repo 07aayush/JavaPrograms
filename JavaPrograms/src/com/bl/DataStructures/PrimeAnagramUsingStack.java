@@ -9,6 +9,7 @@ public class PrimeAnagramUsingStack {
 static int counter=0;
 	
 	//StackUsingLinkedList object is created
+	@SuppressWarnings("rawtypes")
 	static MyStack slt=new MyStack ();
 	
  	 /**
@@ -17,7 +18,8 @@ static int counter=0;
  	  * @param end   :end range
  	  * @return		:void
  	  */
-	  public static void  primeAndAngaram4(int start,int end)
+	  @SuppressWarnings("unchecked")
+	public static void  primeAndAngaram4(int start,int end)
 	  {	 
 	  
 		    //make any size array---TO STORE PRIME NOS
@@ -83,6 +85,7 @@ static int counter=0;
 		 
 		   //display the linked list
 		   slt.print();
+		   sc.close();
 		   
 	   }
 }

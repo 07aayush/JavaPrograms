@@ -35,7 +35,7 @@ public class RegexDemo
 		replace.add("Aayush");
 		replace.add("Aayush Gandhi");
 		replace.add("9635313563");
-		replace.add("new java.util.Date().toString()");
+		replace.add(new java.util.Date().toString());
 		System.out.println(msg);
 		Pattern pattern ;
 		Matcher matcher;

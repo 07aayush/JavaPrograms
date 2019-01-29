@@ -6,11 +6,13 @@ import com.bl.utility.Util;
 
 public class CalanderStack {
 
-	public static void main(String[] args) {
+	public static void main(String[] args)
+	{
 		Scanner sc = new Scanner(System.in);
 		MyStack<Integer> dateQueue=new MyStack<Integer>();
 		MyStack<String> weekDayqueue=new MyStack<String>();	
 		String[] days= {"Sun","Mon","Tue","Wed","Thu","Fri","Sat"};
+		@SuppressWarnings("unused")
 		String[] months= {"","January","February","March","April","May","June","July","August","September","October","November","December"};
 		int [] date= {0,31,28,31,30,31,30,31,31,30,31,30,31};
 		int month=Integer.parseInt(args[0]);
@@ -43,7 +45,7 @@ public class CalanderStack {
 				System.out.println();
 			}
 		}
-
+sc.close();
 	}
 
 }

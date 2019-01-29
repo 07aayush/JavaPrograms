@@ -2,7 +2,9 @@ package com.bl.DataStructures;
 
 public class QueueUsingForAnagram {
 
+	@SuppressWarnings("rawtypes")
 	Node front;
+	@SuppressWarnings("rawtypes")
 	Node rear;
 	
 	//###NOTE: in LINKED LIST ,initially
@@ -17,9 +19,11 @@ public class QueueUsingForAnagram {
 		
 		//public void insertAtBeginning(int data)
 		
+		@SuppressWarnings("unchecked")
 		public void insertAtEnd(int data)  //like
 		{
 			
+			@SuppressWarnings("rawtypes")
 			Node node=new Node();
 			node.data = data;
 			node.next = null;
@@ -46,6 +50,7 @@ public class QueueUsingForAnagram {
 				}
 		}		
 		
+		@SuppressWarnings({ "unused", "rawtypes" })
 		public int pop()
 		{
 			int z=0;
@@ -67,6 +72,7 @@ public class QueueUsingForAnagram {
 		}
 		
 
+		@SuppressWarnings("rawtypes")
 		public void show()
 		{
 			Node temp;

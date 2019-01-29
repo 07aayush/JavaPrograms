@@ -15,5 +15,6 @@ Util util = new Util();
 	System.out.println("Enter year : ");
 	int year = sc.nextInt();
 	util.printCalender(month, year);
+	sc.close();
 }
 }

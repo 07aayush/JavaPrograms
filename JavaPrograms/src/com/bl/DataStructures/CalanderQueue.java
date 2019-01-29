@@ -88,6 +88,7 @@ public class CalanderQueue {
 				}
 				System.out.println();
 				//System.out.println((Object)mainqueue.pop());
+				sc.close();
 			
 		}
 	}

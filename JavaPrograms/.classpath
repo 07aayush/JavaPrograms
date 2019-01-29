@@ -2,8 +2,8 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="/home/bridgelabz/Desktop/jackson-databind-2.8.11.3.jar"/>
-	<classpathentry kind="lib" path="/home/bridgelabz/Desktop/jackson-core-2.8.11.jar"/>
-	<classpathentry kind="lib" path="/home/bridgelabz/Desktop/jackson-annotations-2.8.11.jar"/>
+	<classpathentry kind="lib" path="/home/bridgelabz/Desktop/jackson-annotations-2.9.0.jar"/>
+	<classpathentry kind="lib" path="/home/bridgelabz/Desktop/jackson-core-2.9.5.jar"/>
+	<classpathentry kind="lib" path="/home/bridgelabz/Desktop/jackson-databind-2.9.5.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

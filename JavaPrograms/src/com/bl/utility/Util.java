@@ -1110,7 +1110,8 @@ public class Util {
 	  */
 	 public static int Anagram4(int m) //reverse
 	  {
-		  int r,sum=0,temp; 
+		  @SuppressWarnings("unused")
+		int r,sum=0,temp; 
 		  
 		  //It is the number variable to be checked for palindrome    
 		  
@@ -1145,7 +1146,7 @@ public class Util {
 
 	 public static int Anagram5(int m)
 	  {
-		  int r,sum=0,temp; 
+		  int r,sum=0; 
 		  
 		  //It is the number variable to be checked for palindrome    
 		  

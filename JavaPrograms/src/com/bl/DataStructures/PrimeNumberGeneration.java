@@ -15,6 +15,7 @@ public class PrimeNumberGeneration {
 	
 	int[] primenumber = Util.printingPrimeNumber(range);
 	util.twoDPrime(primenumber);
+	sc.close();
 
 }
 }

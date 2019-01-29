@@ -14,7 +14,7 @@ public class BankCashCounter {
 		int n= sc.nextInt();
 
 		//HERE we pass the size i.e nos tof people to {Mystack ---size method }
-		MyQueue<?> m=new MyQueue(n);	
+		MyQueue<Object> m=new MyQueue<Object>(n);	
 
 		/**
 		 * to i/p names of nos of people in Queue
@@ -80,6 +80,7 @@ public class BankCashCounter {
 
 			System.out.println("------------Thankyou----------");
 			System.out.println("---------next person----------");
+			sc.close();
 		}
 	}
 

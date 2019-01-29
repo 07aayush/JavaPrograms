@@ -70,7 +70,6 @@ public class HashFunction {
 			try {
 				filewritter.write(t.intValue()+" ");
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}) );
@@ -79,6 +78,7 @@ public class HashFunction {
 
 		filewritter.close();
 		fileReader.close();
+		sc.close();
 	}
 
 
