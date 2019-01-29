@@ -17,11 +17,15 @@ public class MyQueue<T>  {
 		s=new Object[size];
 	}
 	
+	public MyQueue() {
+		// TODO Auto-generated constructor stub
+	}
+
 	/**
 	 * to check if the array(queue) is empty
 	 * @return boolean
 	 */
-	boolean isempty()
+	public boolean isempty()
 	{
 		if(rear==-1 && front==-1)
 		{
