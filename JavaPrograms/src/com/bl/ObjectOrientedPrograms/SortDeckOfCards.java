@@ -5,6 +5,13 @@ import com.bl.utility.Util;
 
 public class SortDeckOfCards 
 {
+	/**
+	 * Extended the program of "Deck Of Cards"  to create a Player Object having Deck of Cards, and
+	 * Having ability to Sort by Rank and maintain the cards in a Queue implemented using
+	 * Linked List. Do not use any Collection Library. Further the Player are also arranged
+	 * in Queue. Finally Print the Player and the Cards received by each Player.
+	 * @param args
+	 */
 	public static void main(String[] args)
 	{
 		String playercard[][]=Util.cardDistribute();
@@ -23,6 +30,6 @@ public class SortDeckOfCards
 			System.out.println();
 			index++;
 		}	
-	}
 
+}
 }

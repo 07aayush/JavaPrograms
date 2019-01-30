@@ -1472,6 +1472,12 @@ public class Util {
 		return playercard;
 	}
 	
+	/**
+	 * Take two string arrays that is suit and clubs 
+	 * sort them by their length
+	 * and return your array.
+	 * @param arr
+	 */
 	public static void cardInsert(String arr[][])
 	{
 		String Suits[]= {"Clubs","Diamonds","Hearts","Spades"};
@@ -1485,6 +1491,13 @@ public class Util {
 			}
 		}
 	}
+	
+	/**
+	 * This function is used to shuffle the cards 
+	 * by creating the Random object 
+	 * and by giving the condition to    
+	 * @param arr
+	 */
 	public static void cardShuffle(String arr[][])
 	{
 		Random r1=new Random();

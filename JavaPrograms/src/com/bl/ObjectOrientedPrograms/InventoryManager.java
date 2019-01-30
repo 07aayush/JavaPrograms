@@ -23,47 +23,75 @@ public class InventoryManager
 	public static void main(String[] args)
 	{
 		try {
-			ObjectMapper objectMapper = new ObjectMapper();
-			File file=new File("/home/bridgelabz/Desktop/Aayush/InventoryFactory.json");
-			InventoryFactory inventoryFactory=objectMapper.readValue(file, InventoryFactory.class);
-			Product product=new Product();
-			System.out.println("Enter the name of the product ");
-			String inputProductName=Util.getString();
-			product.setProductName(inputProductName);
-			ProductProperty productProperty= input();
-			List<ProductProperty> properties=new ArrayList<ProductProperty>();
-			properties.add(productProperty);
-			product.setProperties(properties);
-			List<Product> products=inventoryFactory.getInventory();
-			products.add(product);
-			int count=0;
-			System.out.println();
-			while(count!=inventoryFactory.getInventory().size()) {
-				Product prod=products.get(count);
-				for(ProductProperty  produproperty: prod.getProperties())
-				{
-					System.out.print(produproperty.getName() +" - ");
-					double eachinventory =(produproperty.getPrice());
-					System.out.println(eachinventory);
-				}
-				count++;
-			}
-			inventoryFactory.setInventory(products);
-			objectMapper.writeValue(file, inventoryFactory);
-			//create new object using object mapper , it has a function called "writerWithDefaultPrettyPrinter()"
-			//which will indent your json file in the console
-			ObjectMapper objectMapper2 =new ObjectMapper();
-			System.out.println(objectMapper2.writerWithDefaultPrettyPrinter().writeValueAsString(inventoryFactory));
-		}
-		catch (Exception e) 
-		{
+			//to map json to pojo obj and vice-versa
+				ObjectMapper objectMapper=new ObjectMapper();
+				
+				//Reading from a file as json string
+				File file=new File("/home/admin1/Desktop/jsonFiles/jsonInventoryFactory.json");
+				InventoryFactory inventoryFactory=objectMapper.readValue(file, InventoryFactory.class);
+				 List<Product> products=inventoryFactory.getInventory();
+				 System.out.println("Enter the name of the product ");
+					String inputProductName=Util.getString();
+					Product product= products.stream().filter(prd->prd.getProductName().equals(inputProductName)).findFirst().orElse(new Product());
+				
+				 product.setProductName(inputProductName);
+				 List<ProductProperty> properties=new ArrayList<ProductProperty>();
+				 
+				 properties=product.getProperties();
+					//To Set the product properties 
+					ProductProperty productProperty= input();
+					
+					//Adding properties to list 
+					// 
+					properties.add(productProperty);
+					
+					//add properties to the product
+					 product.setProperties(properties);
+					/*
+					 * //for mor than one properties to be added for same product
+					 * productProperty= input(); properties.add(productProperty);
+					 *
+					 */
+					 //adding every product to list
+					//getting product from file as list and saving in product list
+					
+					 products.add(product);
+					 //To print Each Inventory Price
+					 int count=0;
+						System.out.println(" Inventory Price");
+						System.out.println();
+						System.out.println("Price of each Inventory : ");
+						while(count!=inventoryFactory.getInventory().size()) {
+						Product prod=products.get(count);
+						for(ProductProperty  produproperty: prod.getProperties())
+						{
+							System.out.print(produproperty.getName() +" - ");
+							double eachinventory =(produproperty.getPrice());
+							System.out.println(eachinventory);
+						}
+						count++;
+						}
+						
+					
+					//adding list of products to inventry
+					inventoryFactory.setInventory(products);
+					
+					//Writtting to a file
+					objectMapper.writeValue(file, inventoryFactory);
+		}catch (Exception e) {
 			e.printStackTrace();
-			System.out.println("program CRASHED..!!! please run again");
+			System.out.println("Input Incorrect");
 		}
+
 	}
-	public static ProductProperty input()
-	{
+	/*
+	 * To take input from user for product properties
+	 * @return is class type of productproperty
+	 */
+	public static ProductProperty input() {
+	
 		ProductProperty productProperty=new ProductProperty();
+		
 		System.out.println("Enter the name of product type ");
 		String inputPropertyName=Util.getString();
 		productProperty.setName(inputPropertyName);
@@ -73,8 +101,8 @@ public class InventoryManager
 		System.out.println("Enter the Price ");
 		double inputPropertyprice=Util.getDouble();
 		productProperty.setPrice(inputPropertyprice);
-
+		
 		return productProperty;
-
+		
 	}
 }

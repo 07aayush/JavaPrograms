@@ -6,6 +6,7 @@ public class Stocks {
 	private String shareName;
 	private int numberOfShares;
 	private double priceOfStock;
+	
 	public String getStockName() {
 		return stockName;
 	}
