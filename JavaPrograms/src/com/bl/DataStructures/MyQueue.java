@@ -2,7 +2,7 @@ package com.bl.DataStructures;
 
 import java.util.Arrays;
 
-public class MyQueue<T>  {
+public class MyQueue<T> {
 
 	int size;
 
@@ -83,4 +83,5 @@ public class MyQueue<T>  {
 		return size;
 	}
 	
+
 }

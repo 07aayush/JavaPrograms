@@ -8,9 +8,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Random;
 import java.util.Scanner;
-
-import com.bl.DataStructures.MyQueue;
-import com.bl.DataStructures.MyStack;
+import com.bl.DataStructures.Queue;
 
 /// Until class for generics method
 public class Util {
@@ -1457,11 +1455,11 @@ public class Util {
 	 * 4 players
 	 * @return
 	 */
-	public static String[][] distributeCards()
+	public static String[][] cardDistribute()
 	{
 		String arr[][]=new String[4][13];
-		insertCard(arr);
-		shuffleCard(arr);
+		cardInsert(arr);
+		cardShuffle(arr);
 		
 		String playercard[][]=new String[4][9];
 		for(int i=0;i<playercard.length;i++)
@@ -1474,12 +1472,7 @@ public class Util {
 		return playercard;
 	}
 	
-	/**
-	 * take 2 arrays to store the value of suits and ranks of
-	 * the card find out its length and display it to user
-	 * @param arr
-	 */
-	public static void insertCard(String arr[][])
+	public static void cardInsert(String arr[][])
 	{
 		String Suits[]= {"Clubs","Diamonds","Hearts","Spades"};
 		String Rank[]= {"2","3","4","5","6","7","8","9","10","Jack","King","Queen","Ace"};
@@ -1492,15 +1485,7 @@ public class Util {
 			}
 		}
 	}
-	/**
-	 * this function is used for shuffling the cards
-	 * here we have created the random object
-	 * hence using the for loop and by giving the condition to shuffle 
-	 * the cards 150 times
-	 * and then relocating the value of the card
-	 * @param arr
-	 */
-	public static void shuffleCard(String arr[][])
+	public static void cardShuffle(String arr[][])
 	{
 		Random r1=new Random();
 		for(int i=0;i<150;i++)
@@ -1509,18 +1494,11 @@ public class Util {
 			int x2=r1.nextInt(13);
 			int x3=r1.nextInt(4);
 			int x4=r1.nextInt(13);
-			swap(arr,x1,x2,x3,x4);	
+			swap(arr,x1,x2,x3,x4);
+			
 		}
 	}
 	
-	/**
-	 * this function is used to swap the cards( method used for shuffling)
-	 * @param arr
-	 * @param x1
-	 * @param x2
-	 * @param x3
-	 * @param x4
-	 */
 	public static void swap(String arr[][],int x1,int x2,int x3,int x4)
 	{
 		String temp=arr[x1][x2];
@@ -1528,13 +1506,11 @@ public class Util {
 		arr[x3][x4]=temp;
 	}
 	
-	@SuppressWarnings("unchecked")
-	public static MyQueue<MyQueue<String>> sortCard(String[][] playCard)
+	public static Queue<Queue<String>> cardSort(String playercard[][])
 	{
-		@SuppressWarnings("rawtypes")
-		MyQueue<MyQueue<String>> sortedCard = new MyQueue();
-		String[] rank ={"2","3","4","5","6","7","8","9","10","Jack","King","Queen","Ace"};
+		Queue<Queue<String>> sortedcard=new Queue<>();
 		
+		String rank[]= {"2","3","4","5","6","7","8","9","10","Jack","Queen","King","Ace"};
 		int arr[]=new int[9];
 		int index=0;
 		for(int i=0;i<4;i++)
@@ -1542,7 +1518,7 @@ public class Util {
 			for(int j=0;j<9;j++)
 			{
 				
-				String temp[]=(playCard[i][j]+" ").split(" ");
+				String temp[]=(playercard[i][j]+" ").split(" ");
 				for(int k=0;k<13;k++)
 				{
 					if(temp[1].equals(rank[k]))
@@ -1565,30 +1541,28 @@ public class Util {
 						arr[k1]=arr[k2];
 						arr[k2]=temp;
 						
-						String temp1=playCard[i][k1];
-						playCard[i][k1]=playCard[i][k2];
-						playCard[i][k2]=temp1;
+						String temp1=playercard[i][k1];
+						playercard[i][k1]=playercard[i][k2];
+						playercard[i][k2]=temp1;
 						
 					}
 				}
 			}
 		
 		}
-		for(int i=0;i<playCard.length;i++)
+		
+		for(int i=0;i<playercard.length;i++)
 		{
-			MyQueue<String> temp=new MyQueue<>();
-			for(int j=0;j<playCard[i].length;j++)
+			Queue<String> temp=new Queue<>();
+			for(int j=0;j<playercard[i].length;j++)
 			{
-				temp.enqueue(playCard[i][j]);
+				temp.enqueue(playercard[i][j]);
 			}
-			sortedCard.enqueue(temp);
+			sortedcard.enqueue(temp);
 		}
-
-		 
-		return sortedCard;
-		 
+		
+		return sortedcard;
 	}
-	
 }
 
 

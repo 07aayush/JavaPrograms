@@ -15,7 +15,7 @@ public class DeckOfCard {
 	public static void main(String[] args)
 	{
 
-		String playercard[][]=Util.distributeCards();
+		String playercard[][]=Util.cardDistribute();
 
 		//System.out.println("Player 1      Player 2       Player 3        Player 4");
 	
