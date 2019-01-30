@@ -5,7 +5,7 @@ import java.util.Scanner;
 import com.bl.utility.Util;
 
 public class TestStockAccount 
-{
+{/**
 	public static void main(String[] args)
 	{
 		Scanner sc= new Scanner(System.in);
@@ -28,11 +28,13 @@ public class TestStockAccount
 				System.out.println("enter name");
 				String inputname = sc.next();
 				
-				
 			 }
 		 }
 		 
 	}
 	
 
+}
+
+	*/
 }
