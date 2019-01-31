@@ -1,5 +1,6 @@
 package com.bl.utility;
 
+import java.io.FileReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -8,6 +9,11 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Random;
 import java.util.Scanner;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+
+
 import com.bl.DataStructures.Queue;
 
 /// Until class for generics method
@@ -1576,6 +1582,46 @@ public class Util {
 		
 		return sortedcard;
 	}
+	
+	
+	
+	 /**
+	 * Purpose-Reading Data From .json File ABout Stock Report and calculating and total value of each stock and total evaluation of stock market
+	 * and printing those data on console.
+	 * @param Void
+	 * @throws org.json.simple.parser.ParseException 
+	 * @ return void
+	 */
+	public static void stockDetails()
+	{
+		JSONParser parser = new JSONParser();
+		try
+		{
+			JSONObject obj = (JSONObject) parser.parse(new FileReader("/home/bridgelabz/Desktop/Aayush/j.json"));
+			JSONObject jsonObject = (JSONObject) obj;
+			JSONArray jsonArr = (JSONArray)jsonObject.get("Stock");
+			
+			long totalValue=0;
+			long total=0;
+			
+			System.out.println("\nStock Details\n");
+			System.out.println("Stock Name\tNo Of Shares\tShare Price\tTotal Value Of Stock");
+			for(int i=0;i<jsonArr.size();i++) 
+			{
+				//calculating each stock price
+			   JSONObject simple =(JSONObject) jsonArr.get(i);
+			   total=(long)simple.get("No of share")*(long)simple.get("Share price");
+			   //System.out.println("Value of "+simple.get("Stock Name")+" is "+total);
+			   System.out.println(simple.get("Stock Name")+"\t\t"+simple.get("No of share")+"\t\t"+simple.get("Share price")+"\t\t"+total);
+			   totalValue=totalValue+total;
+			}
+			System.out.println("\nTotal value is:- "+totalValue);
+		}
+		catch(Exception e)
+		{
+			System.out.println(e);
+		}
+	}
 }
-
+	
 

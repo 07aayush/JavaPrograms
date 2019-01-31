@@ -1,0 +1,29 @@
+{
+
+	"Stock" :[{
+			"Stock Name" : "Oracle" ,
+			 "No of share" : 45 , 
+			"Share price": 35600
+		},
+
+		{
+			"Stock Name" : "MTV" ,
+			 "No of share" : 89 ,
+			 "Share price": 23124
+		},
+		{
+			"Stock Name" : "Google" ,
+			"No of share" : 56 , 
+			"Share price": 56567
+		},
+		{	
+			"Stock Name" : "TV18" , 
+			"No of share" : 78 ,
+			"Share price": 76763
+		},
+		{
+			"Stock Name" : "Amazon" , 
+			"No of share" : 77 , 
+			"Share price": 98907
+		}]
+}
