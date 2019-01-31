@@ -2,7 +2,7 @@ package com.bl.ObjectOrientedPrograms;
 
 import java.util.Scanner;
 
-public class CommercialStock {
+public class CommercialLL {
 
 	public static void main(String[] args) throws Exception 
 	{		
@@ -10,10 +10,10 @@ public class CommercialStock {
 
 		CommercialStockMethods stock = new CommercialStockMethods();
 		char ch;
-		System.out.println("Welcome to Stock Market");
+		System.out.println("Welcome..!");
 		do
 		{
-			System.out.println("Enter What you wants to do\n1. Add Details\t2. Buy\t3. Sell\t4. Print Report ");
+			System.out.println("What you want to do..?\n1. Add Details\t2. Buy\t3. Sell\t4. Print Report ");
 			int choice = sc.nextInt();			
 			switch(choice)
 			{
@@ -31,10 +31,9 @@ public class CommercialStock {
 				default :
 					break;			
 			}
-			System.out.println("Do you wants to continue...(Y/N)");
+			System.out.println("Do want to continue...(Y/N)");
 			ch = sc.next().charAt(0);
 		}while(ch=='Y' || ch == 'y');
 			sc.close();
-	}
-	
+}
 }
