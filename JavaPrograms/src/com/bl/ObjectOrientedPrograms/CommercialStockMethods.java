@@ -18,8 +18,8 @@ public class CommercialStockMethods {
 	Scanner sc = new Scanner(System.in);
 	Util utility = new Util();
 	
-	private String companyFilePath = "Company.json";//add file path
-	private String userFilePath = "UserStock.json";//add file path
+	private String companyFilePath ="/home/bridgelabz/Desktop/Aayush/Company.json";//add file path
+	private String userFilePath ="/home/bridgelabz/Desktop/Aayush/UserStock.json";//add file path
 	private CommercialCompanyPojo companyPojo = new CommercialCompanyPojo();
 	
 	public void addDetails() throws Exception

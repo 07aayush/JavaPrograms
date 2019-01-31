@@ -10,7 +10,6 @@ public class CommercialCompanyPojo {
 	public CommercialCompanyPojo()
 	{		
 	}
-
 	public CommercialCompanyPojo(String stockName, String stockSymbol, String noOFShare, String sharePrice) {
 		super();
 		this.stockName = stockName;
