@@ -11,16 +11,12 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 
-import com.bl.utility.Util;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 public class CommercialStockMethods {
 
-	Scanner sc = new Scanner(System.in);
-	Util utility = new Util();
 	
-	private String companyFilePath ="/home/bridgelabz/Desktop/Aayush/Company.json";//add file path
-	private String userFilePath ="/home/bridgelabz/Desktop/Aayush/UserStock.json";//add file path
+	Scanner sc= new Scanner(System.in);
+	private String companyFilePath = "/home/bridgelabz/Desktop/Aayush/Company.json";
+	private String userFilePath = "/home/bridgelabz/Desktop/Aayush/UserStock.json";
 	private CommercialCompanyPojo companyPojo = new CommercialCompanyPojo();
 	
 	public void addDetails() throws Exception
@@ -60,11 +56,8 @@ public class CommercialStockMethods {
 		
 		System.out.println("Enter share Price : ");
 		String sharePrice = sc.next();
-		companyPojo.setSharePrice(sharePrice);
-		ObjectMapper objectMapper =new ObjectMapper();
-		System.out.println(objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(companyPojo));
-	//	createCompanyJsonObj(companyPojo ,file);
-		
+		companyPojo.setSharePrice(sharePrice);		
+		createCompanyJsonObj(companyPojo ,file);
 	}
 	@SuppressWarnings("unchecked")
 	public void createCompanyJsonObj(CommercialCompanyPojo companyPojo , File file) throws Exception
@@ -92,7 +85,7 @@ public class CommercialStockMethods {
 	
 	public void addUser() throws Exception
 	{
-		CompanyUserPojo userPojo = new CompanyUserPojo();
+		CommercialUserPojo userPojo = new CommercialUserPojo();
 		File file = new File(userFilePath);
 		System.out.println("Enter User name : ");
 		String userName = sc.next();
@@ -104,13 +97,11 @@ public class CommercialStockMethods {
 		
 		System.out.println("Enter share price : ");
 		String sharePrice = sc.next();
-		userPojo.setPrice(sharePrice);	
-		ObjectMapper objectMapper =new ObjectMapper();
-		System.out.println(objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(userPojo));
+		userPojo.setPrice(sharePrice);					
 		createUserJsonObj(userPojo ,file);
 	}	
 	@SuppressWarnings("unchecked")
-	public void createUserJsonObj(CompanyUserPojo userPojo , File file) throws Exception
+	public void createUserJsonObj(CommercialUserPojo userPojo , File file) throws Exception
 	{
 		JSONParser parser = new JSONParser();		 
 		JSONObject jsonObj = (JSONObject)parser.parse(new FileReader(file));

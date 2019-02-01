@@ -1,5 +1,11 @@
 package com.bl.ObjectOrientedPrograms;
 
+/**
+ * a pojo of the attributes of the company
+ * such as stock name stock symbol,number of share,share price
+ * @author bridgelabz
+ *
+ */
 public class CommercialCompanyPojo {
 
 	private String stockName;
@@ -10,6 +16,7 @@ public class CommercialCompanyPojo {
 	public CommercialCompanyPojo()
 	{		
 	}
+
 	public CommercialCompanyPojo(String stockName, String stockSymbol, String noOFShare, String sharePrice) {
 		super();
 		this.stockName = stockName;
