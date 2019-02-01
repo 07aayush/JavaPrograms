@@ -26,8 +26,6 @@ public class RegexDemo
 		Date date = new Date();
 		SimpleDateFormat sm =new SimpleDateFormat("dd/MM/yyyy");
 		String date1 =sm.format(date);
-	System.out.println(date1);
-//			System.out.println(LocalDate.now());
 		
 		String msg="Hello <<name>>, We have your full name as <<full name>> in our system. "
 				+ "\nyour contact number is 91-xxxxxxxxxx. Please,let us know in case of any"

@@ -33,7 +33,7 @@ public class CommercialStockMethods {
 			break;
 		default:
 			System.out.println("Invalid choice...!!!");
-			System.out.println("Do you wants to enter again...(Y/N)");
+			System.out.println("Do you want to enter again...(Y/N)");
 			char ch = sc.next().charAt(0);
 			if(ch == 'Y' || ch == 'y')
 				addDetails();
