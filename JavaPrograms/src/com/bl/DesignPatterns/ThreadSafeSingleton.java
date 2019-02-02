@@ -16,16 +16,21 @@ public class ThreadSafeSingleton {
 		return instance;
 	}
 	
-	public static ThreadSafeSingleton getInstnce()
+//	public static ThreadSafeSingleton getInstnce()
+//	{
+//		if(instance== null)
+//		{
+//			synchronized (ThreadSafeSingleton.class) {
+//				if(instance== null)
+//					instance = new  ThreadSafeSingleton();
+//			}
+//			
+//		}
+//		return instance;
+//	}
+	public static void main(String[] args)
 	{
-		if(instance== null)
-		{
-			synchronized (ThreadSafeSingleton.class) {
-				if(instance== null)
-					instance = new  ThreadSafeSingleton();
-			}
-			
-		}
-		return instance;
+		ThreadSafeSingleton ins1 = new ThreadSafeSingleton();
+		System.out.println("is instance == ins1 "+(instance == ins1));
 	}
 }

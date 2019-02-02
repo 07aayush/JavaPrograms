@@ -10,8 +10,9 @@ public class ReflectionSingletonTest {
 	        EagerInitializedSingleton instanceOne = EagerInitializedSingleton.getInstance();
 	        EagerInitializedSingleton instanceTwo = null;
 	        try {
-	            Constructor[] constructors = EagerInitializedSingleton.class.getDeclaredConstructors();
-	            for (Constructor constructor : constructors) {
+	            @SuppressWarnings("rawtypes")
+				Constructor[] constructors = EagerInitializedSingleton.class.getDeclaredConstructors();
+	            for (@SuppressWarnings("rawtypes") Constructor constructor : constructors) {
 	                //Below code will destroy the singleton pattern
 	                constructor.setAccessible(true);
 	                instanceTwo = (EagerInitializedSingleton) constructor.newInstance();
@@ -24,5 +25,6 @@ public class ReflectionSingletonTest {
 	        System.out.println(instanceTwo.hashCode());
 	    }
 
+	
 	}
 

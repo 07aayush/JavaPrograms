@@ -9,4 +9,12 @@ public class EagerInitializedSingleton {
 	    public static EagerInitializedSingleton getInstance(){
 	        return instance;
 	    }
+	    public static void main(String[] args)
+	    {
+	    	EagerInitializedSingleton instance = new EagerInitializedSingleton();
+	    	EagerInitializedSingleton inst = new  EagerInitializedSingleton();
+	    	//System.out.println("is instance == inst " +(instance.hashCode() inst.hashCode()));
+	    	System.out.println(inst.hashCode());
+	    	System.out.println(instance.hashCode());
+	    }
 }

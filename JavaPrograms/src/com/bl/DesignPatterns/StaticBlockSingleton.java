@@ -19,5 +19,10 @@ public class StaticBlockSingleton {
     public static StaticBlockSingleton getInstance(){
         return instance;
     }
+    public static void main(String[] args)
+    {
+    	StaticBlockSingleton inst = new StaticBlockSingleton();//other obj
+    	System.out.println("is instance == isnt" +(instance == inst));
+    }
 }
 	

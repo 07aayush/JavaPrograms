@@ -14,4 +14,9 @@ public class SerializedSingleton implements Serializable {
 	    public static SerializedSingleton getInstance(){
 	        return SingletonHelper.instance;
 	    }
+	    public static void main(String[] arsg)
+	    {
+	    	SerializedSingleton n = new SerializedSingleton();
+	    	System.out.println(n == getInstance());
+	    }
 }
