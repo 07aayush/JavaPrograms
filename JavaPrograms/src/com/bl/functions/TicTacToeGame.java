@@ -40,7 +40,7 @@ public class TicTacToeGame {
 				while (move<0 || move>9 || board[move/3][move%3] != EMPTY) {
 					System.out.println("Please enter your move(0-9): ");
 					move = sc.nextInt();
-					sc.close();
+					//sc.close();
 
 				}
 			} else {
