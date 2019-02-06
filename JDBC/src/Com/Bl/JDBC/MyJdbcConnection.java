@@ -7,8 +7,27 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
 
+/**
+ * @author Aayush C Gandhi
+ * Started with JDBC
+ * to Establish the connection JDBC the steps are 
+ * 1.Load the register Driver
+ * 2.Create a Communiaction with DataBase
+ * 3.Create the Statement(Platform).
+ * 4.Execute the Query
+ * 5.Get the ResultSet
+ * 6.Finally Close the Connection.
+ *	
+ */
 public class MyJdbcConnection {
 
+	/**
+	 * This program illustrates the Use of statement
+	 * Performing the Functions like 
+	 * Create, Insert, Update and delete using statements.
+	 * parallely Reflecting it to the DataBase (MySql) 
+	 * @param args
+	 */
 	public static void main(String[] args)
 	{
 		String url="jdbc:mysql://localhost:3306/test";
