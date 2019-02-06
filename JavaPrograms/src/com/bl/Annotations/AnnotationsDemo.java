@@ -35,10 +35,12 @@ class NokiaASeries
 
 public class AnnotationsDemo {
 
+	@SuppressWarnings("unchecked")
 	public static void main(String[] args)
 	{
 		NokiaASeries obj = new NokiaASeries("fire", 5);
 		
+		@SuppressWarnings("rawtypes")
 		Class c = obj.getClass();
 		Annotation an = c.getAnnotation(SmartPhone.class);
 		SmartPhone s = (SmartPhone)an;
