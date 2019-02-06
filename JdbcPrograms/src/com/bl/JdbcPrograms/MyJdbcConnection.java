@@ -1,4 +1,4 @@
-package Com.Bl.JDBC;
+package com.bl.JdbcPrograms;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
