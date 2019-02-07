@@ -13,6 +13,7 @@ public class TicTacToeGame {
 
 	public static void main(String[] args)
 	{
+		@SuppressWarnings("resource")
 		Scanner sc = new Scanner(System.in);
 
 		int turn = USER;
@@ -117,6 +118,7 @@ public class TicTacToeGame {
 		}
 		return ' ';
 	}
+	
 
 	// See if the game is over
 	public static int checkWinner(int[][] board) {
@@ -171,6 +173,7 @@ public class TicTacToeGame {
 			return NONE;
 
 		return STALEMATE;
+		
 	}
 
 	// Generate a random computer move
