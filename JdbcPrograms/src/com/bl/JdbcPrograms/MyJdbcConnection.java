@@ -1,3 +1,4 @@
+
 package com.bl.JdbcPrograms;
 
 import java.sql.Connection;
@@ -35,7 +36,7 @@ public class MyJdbcConnection {
 		String pwd="bridgeit";
 		String Query = "select * from Student";
 		@SuppressWarnings("unused")
-		String insql="insert into Student values(5,'chandu')";
+		String insql="insert into Student values(7,'chandu')";
 		String sql = "select * from Student order by RegNumber asc";
 		String Sql= "delete from Student where RegNumber =1 and Name = 'rahul'";
 		Connection con = null;
