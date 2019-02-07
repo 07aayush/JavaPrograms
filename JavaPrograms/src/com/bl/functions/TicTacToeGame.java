@@ -11,9 +11,10 @@ public class TicTacToeGame {
 	static final int STALEMATE = 3;
 
 
+	@SuppressWarnings("resource")
 	public static void main(String[] args)
 	{
-		@SuppressWarnings("resource")
+		
 		Scanner sc = new Scanner(System.in);
 
 		int turn = USER;
